@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cumulative Review Quiz</title>
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--ink:#1d1d1b;--mut:#6b6a65;--line:#e3e1da;--acc:#2f5d8a;--ok:#2e7d4f;--bad:#b3412f;--code:#f0eee8}
+@media (prefers-color-scheme:dark){:root{--bg:#141412;--card:#1d1d1b;--ink:#ecebe6;--mut:#9c9a93;--line:#33322e;--acc:#7fb0e0;--ok:#6cc58f;--bad:#ec8a78;--code:#262522}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font-size:1.5rem;margin:0 0 4px}.sub{color:var(--mut);margin:0 0 16px}
+.setup{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 18px}
+.setup select{font:inherit;padding:6px 8px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.mix{font-size:.9rem;color:var(--mut);margin-top:8px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:0 0 14px}
+.qh{display:flex;justify-content:space-between;gap:8px;color:var(--mut);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+.qt{font-weight:600;margin:6px 0 10px}
+pre{background:var(--code);border-radius:6px;padding:10px 12px;overflow-x:auto;font:14px/1.45 ui-monospace,Consolas,monospace;margin:0 0 10px}
+label{display:block;padding:8px 10px;border:1px solid var(--line);border-radius:6px;margin:6px 0;cursor:pointer}
+label:hover{border-color:var(--acc)}input{margin-right:8px}
+label.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
+label.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,transparent)}
+.why{display:none;margin-top:10px;padding:10px;border-left:3px solid var(--acc);background:var(--code);border-radius:4px;font-size:.95rem}
+.done .why{display:block}
+.study{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:.9rem;color:var(--mut)}.study b{color:var(--ink)}
+button{font:inherit;padding:10px 18px;border-radius:8px;border:1px solid var(--acc);background:var(--acc);color:var(--bg);cursor:pointer;margin:4px 8px 4px 0}
+button.ghost{background:transparent;color:var(--acc)}
+#result{display:none;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:0 0 20px}
+.bar{height:10px;background:var(--line);border-radius:5px;overflow:hidden;margin:4px 0 10px}.bar i{display:block;height:100%}
+.row{display:flex;justify-content:space-between;font-size:.95rem}
+.big{font-size:2rem;font-weight:700}
+code{font-family:ui-monospace,Consolas,monospace;background:var(--code);padding:1px 4px;border-radius:3px}
+ol.miss li{margin:4px 0}
+.tag{display:inline-block;font-size:.75rem;padding:1px 6px;border-radius:4px;background:var(--code);color:var(--mut)}
+</style></head><body><main>
+<h1>Cumulative Review</h1>
+<p class="sub">Every past section, every week. Newest sections get the most questions. Older ones taper off but never disappear.
+Questions you missed last time come back first.</p>
+<div class="setup">
+  <label style="display:inline;border:none;padding:0;cursor:default">I'm about to start section
+  <select id="start"></select></label>
+  <div class="mix" id="mix"></div>
+</div>
+<div id="result"></div>
+<form id="f"></form>
+<button id="submit">Score it</button><button class="ghost" id="fresh">New set</button>
+</main>
+<script>
+const DATA = __DATA__;
+const KEY = 'dsa-review-history';
+let hist = {};
+try { hist = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(hist)); } catch (e) {} };
+const qid = q => q.section + ':' + q.id;
+const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const inline = s => esc(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+const taper = age => DATA.taper[age] ?? DATA.floor;
+const sel = document.getElementById('start');
+for (let n = 1; n <= DATA.max_section; n++) {
+  const o = document.createElement('option'); o.value = n;
+  o.textContent = String(n).padStart(2, '0') + (DATA.names[n] ? ' — ' + DATA.names[n].slice(3) : ' (next section)');
+  sel.appendChild(o);
+}
+try { const last = localStorage.getItem('dsa-review-start'); if (last) sel.value = last; else sel.value = DATA.max_section; } catch (e) { sel.value = DATA.max_section; }
+
+function weightedSample(items, k) {
+  // missed last time: weight 4 · never seen: 2 · got right: 1
+  const pool = items.map(q => { const h = hist[qid(q)]; return {q, w: h === undefined ? 2 : (h ? 1 : 4)}; });
+  const out = [];
+  while (out.length < k && pool.length) {
+    const total = pool.reduce((a, b) => a + b.w, 0);
+    let r = Math.random() * total, i = 0;
+    while (r > pool[i].w) { r -= pool[i].w; i++; }
+    out.push(pool.splice(i, 1)[0].q);
+  }
+  return out;
+}
+let current = [];
+function build() {
+  const start = +sel.value;
+  try { localStorage.setItem('dsa-review-start', start); } catch (e) {}
+  const past = Object.keys(DATA.names).map(Number).filter(n => n < start).sort((a, b) => b - a);
+  current = []; const parts = [];
+  past.forEach(n => {
+    const age = start - n;
+    const items = DATA.bank.filter(q => q.section === n);
+    const k = Math.min(items.length, Math.max(3, Math.round(DATA.base * taper(age))));
+    current.push(...weightedSample(items, k));
+    parts.push(`${String(n).padStart(2,'0')}: ${k}`);
+  });
+  for (let i = current.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [current[i], current[j]] = [current[j], current[i]]; }
+  document.getElementById('mix').textContent = past.length
+    ? `This set: ${current.length} questions — ` + parts.join(' · ') + ' (newest first)'
+    : 'Nothing to review yet. Finish a section first.';
+  const f = document.getElementById('f'); f.innerHTML = '';
+  document.getElementById('result').style.display = 'none';
+  current.forEach((q, i) => {
+    const d = document.createElement('div'); d.className = 'q'; d.id = 'q' + i;
+    let h = `<div class="qh"><span>Q${i+1} <span class="tag">S${String(q.section).padStart(2,'0')}</span></span><span>${esc(q.topic_label)}</span></div><div class="qt">${inline(q.q)}</div>`;
+    if (q.code) h += `<pre>${esc(q.code)}</pre>`;
+    q.options.forEach((o, j) => { h += `<label><input type="radio" name="q${i}" value="${j}">${inline(o)}</label>`; });
+    h += `<div class="why">${inline(q.why)}<div class="study">If you missed it, study: <b>${inline(q.study)}</b></div></div>`;
+    d.innerHTML = h; f.appendChild(d);
+  });
+  window.scrollTo && window.scrollTo(0, 0);
+}
+sel.onchange = build;
+document.getElementById('fresh').onclick = build;
+document.getElementById('submit').onclick = () => {
+  let right = 0; const per = {}; const missed = [];
+  current.forEach((q, i) => {
+    const d = document.getElementById('q' + i); d.classList.add('done');
+    const pick = d.querySelector('input:checked'); const labels = d.querySelectorAll('label');
+    labels.forEach(l => l.classList.remove('right', 'wrong')); labels[q.answer].classList.add('right');
+    per[q.section] = per[q.section] || [0, 0]; per[q.section][1]++;
+    const ok = pick && +pick.value === q.answer;
+    if (ok) { right++; per[q.section][0]++; } else { if (pick) labels[+pick.value].classList.add('wrong'); missed.push(i); }
+    hist[qid(q)] = !!ok;
+  });
+  save();
+  const n = current.length, pct = n ? Math.round(100 * right / n) : 0;
+  let h = `<div class="big">${right}/${n} · ${pct}%</div><h3>By section</h3>`;
+  Object.keys(per).sort((a, b) => b - a).forEach(s => {
+    const [a, b] = per[s], p = a / b;
+    h += `<div class="row"><span>${esc(DATA.names[s])}</span><span>${a}/${b}</span></div><div class="bar"><i style="width:${100*p}%;background:${p>=0.8?'var(--ok)':'var(--bad)'}"></i></div>`;
+  });
+  if (missed.length) {
+    h += '<h3>Study list for your misses</h3><ol class="miss">' + missed.map(i => `<li>Q${i+1}: ${inline(current[i].study)}</li>`).join('') + '</ol>';
+    h += '<p>These come back with extra weight next time.</p>';
+  } else { h += '<p><b style="color:var(--ok)">Clean sweep.</b> Start the new section.</p>'; }
+  h += '<button id="copy">Copy results for Claude</button>';
+  const r = document.getElementById('result'); r.innerHTML = h; r.style.display = 'block'; window.scrollTo && window.scrollTo(0, 0);
+  const summary = `Cumulative review before section ${sel.value}: ${right}/${n} (${pct}%). Missed: ` +
+    (missed.map(i => current[i].study).join('; ') || 'none') + '.';
+  document.getElementById('copy').onclick = () => { navigator.clipboard && navigator.clipboard.writeText(summary); document.getElementById('copy').textContent = 'Copied'; };
+};
+build();
+</script></body></html>

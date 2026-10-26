@@ -1,0 +1,151 @@
+# 01-5 Array and String Rapid Fire Drill
+
+N: Section one, track five. Rapid fire drill. Arrays and strings.
+N: A few seconds per question. Say it out loud. Missed ones are the point. Repeat this track until you beat every answer.
+[pause 2]
+N: In place, return k, first k elements. Pattern?
+[pause 3]
+A: Read and write pointers.
+N: The three steps of read and write?
+[pause 5]
+A: Write starts at zero. Copy keepers to write and move it. Return write.
+N: Remove Duplicates keep rule?
+[pause 4]
+A: Write is zero, or different from write minus one.
+N: Remove Duplicates two keep rule?
+[pause 4]
+A: Write under two, or different from write minus two.
+N: Merge Sorted Array fills from which end?
+[pause 3]
+A: The back.
+N: Merge Sorted Array loops while what?
+[pause 3]
+A: While list two has items left.
+N: Does nums equals new list change the caller's list?
+[pause 3]
+A: No.
+N: More than half the list. Pattern?
+[pause 3]
+A: Count it, or Boyer Moore voting.
+N: Boyer Moore. When the count hits zero?
+[pause 3]
+A: The current item becomes the candidate.
+N: Boyer Moore depends on what guarantee?
+[pause 3]
+A: A majority exists.
+N: H Index. Sort which way?
+[pause 3]
+A: Biggest first.
+N: H Index. Compare what to what?
+[pause 4]
+A: Citations to the paper's position, counting from one.
+N: Rotate right. Where does index i go?
+[pause 3]
+A: i plus k, mod n.
+N: First step of any rotation?
+[pause 3]
+A: k mod equals n.
+N: Three reversals for a right rotation?
+[pause 4]
+A: All. First k. The rest.
+N: Best pair, one before the other. Pattern?
+[pause 3]
+A: Best so far scan.
+N: Stock one tracks?
+[pause 3]
+A: Lowest price, and best profit.
+N: Stock two answer?
+[pause 3]
+A: Sum of every positive daily change.
+N: Jump Game tracks?
+[pause 3]
+A: Farthest reach.
+N: Jump Game. Stuck when?
+[pause 3]
+A: The index is past reach.
+N: Jump Game two. Three variables?
+[pause 4]
+A: Jumps, ring end, farthest.
+N: Jump Game two. Count a jump when?
+[pause 3]
+A: When i reaches the ring end.
+N: Gas Station. Answer is minus one when?
+[pause 3]
+A: Total gas is less than total cost.
+N: Gas Station. Tank goes negative at i. New start?
+[pause 3]
+A: i plus one.
+N: For each i, everything else. Pattern?
+[pause 3]
+A: Prefix pass and suffix pass.
+N: Product Except Self. Why not divide?
+[pause 3]
+A: Zeros.
+N: Product prefix. Record first, or include first?
+[pause 3]
+A: Record first.
+N: Empty product starts at?
+[pause 3]
+A: One.
+N: Water above one bar?
+[pause 4]
+A: Smaller of max left and max right, minus the bar.
+N: Candy. Second sweep uses what?
+[pause 3]
+A: Max.
+N: Constant time insert, delete, and random. Structures?
+[pause 3]
+A: A list and a dictionary of value to index.
+N: Delete from the middle of the list in constant time. How?
+[pause 4]
+A: Swap with the last item, fix its index, pop the end.
+N: Last word without split. Walk which way?
+[pause 3]
+A: Backward.
+N: Which check goes first in the while condition?
+[pause 3]
+A: i is at least zero.
+N: Common prefix. Outer loop is over?
+[pause 3]
+A: Character positions.
+N: Reverse words one liner?
+[pause 3]
+A: Split, reverse, join with a space.
+N: Substring search. Last start?
+[pause 3]
+A: n minus m.
+N: Roman parsing. When to subtract?
+[pause 3]
+A: When the next symbol is bigger.
+N: Roman building. Method?
+[pause 3]
+A: Greedy, biggest piece first, with the six pairs.
+N: Zigzag special case?
+[pause 3]
+A: One row. Return the string.
+N: Text Justification. Seven spaces, three gaps?
+[pause 3]
+A: Three, two, two.
+N: Mistake M one?
+[pause 3]
+A: Index versus value.
+N: Mistake M two?
+[pause 3]
+A: Looping over the wrong thing.
+N: Mistake M four?
+[pause 3]
+A: Calculating but not saving.
+N: Mistake M five?
+[pause 3]
+A: Off by one at the ends.
+N: Mistake M six?
+[pause 3]
+A: Ignoring the return type.
+N: Mistake M seven?
+[pause 3]
+A: Returning true too early.
+N: First line of every plan?
+[pause 3]
+A: Returns, and what it returns.
+[pause 1]
+N: End of drill. When this feels easy, you're ready for the gate.

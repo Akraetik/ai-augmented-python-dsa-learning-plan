@@ -1,0 +1,107 @@
+# 01-2 In Place, Counting, Rotation, Scans
+
+N: Section one, track two. In place edits, counting, rotation, and scans. Lessons one point one through one point four.
+N: Answer the questions out loud before the answer voice does.
+[pause 1]
+N: The read and write pointer pattern has three parts. Say them with me.
+N: Set write to zero. For each item, if it passes the keep rule, copy it to the write slot and move write forward. Return write.
+[pause 1]
+N: Only the keep rule changes from problem to problem.
+N: Remove Element. What's the keep rule?
+[pause 3]
+A: Keep the item if it's not the value we're removing.
+N: Remove Duplicates, on a sorted list. What's the keep rule?
+[pause 3]
+A: Keep it if write is zero, or if it's different from the last kept item, at write minus one.
+N: Remove Duplicates two allows each value twice. What's the keep rule?
+[pause 4]
+A: Keep it if write is less than two, or if it's different from the item two kept slots back, at write minus two.
+N: Why compare with the kept region, and not with the items just behind read?
+[pause 4]
+A: Because earlier writes may have changed what's behind read. The kept region is the only part you can trust.
+[pause 1]
+N: What do you return from these problems? The list, or a number?
+[pause 3]
+A: A number. k, how many items you kept. The list is changed in place.
+N: Here's a trap. Inside your function, you build a new list and write nums equals new list. What does the caller see?
+[pause 4]
+A: Nothing changes. That only renames the local variable. You have to change the contents, by index, or with a slice assignment.
+[pause 1]
+N: Merge Sorted Array. Two sorted lists. The first has empty space at the end. Merge the second into the first.
+N: Why fill from the back?
+[pause 4]
+A: The back is empty. Writing there never destroys a value you haven't read yet.
+N: You use three positions. The last real item of list one. The last item of list two. And the last slot overall. Each step, the bigger of the two goes into the last slot.
+N: When list two runs out first, are you done?
+[pause 3]
+A: Yes. List one's leftovers are already in place.
+N: When list one runs out first?
+[pause 3]
+A: Copy the rest of list two in.
+[pause 1]
+N: Now counting. Majority Element. One value fills more than half the list.
+N: Name three ways to find it, with their costs.
+[pause 6]
+A: Count with a Counter. Linear time, linear space. Sort and take the middle. N log n. Or Boyer Moore voting. Linear time, constant space.
+N: Why does the middle of the sorted list always hold the majority?
+[pause 4]
+A: The majority covers more than half the slots. Any block that big must cover the middle.
+N: Walk through Boyer Moore.
+[pause 6]
+A: Keep a candidate and a count. If the count is zero, the current item becomes the candidate. If the item matches the candidate, add one. If not, subtract one. The survivor is the answer.
+N: And the catch?
+[pause 3]
+A: It only works because a majority is guaranteed. Without that, you'd need a second pass to check.
+[pause 1]
+N: H Index. A researcher's h index is the biggest h where they have h papers with at least h citations each.
+N: Sort the citations biggest first. Number the papers from one. Then walk down. While the citations are at least the paper number, h is that paper number.
+N: In H Index, which is the value and which is the position?
+[pause 4]
+A: The value is the citation count. The position, counting from one, is the h you're testing. Mixing them is mistake M one.
+[pause 1]
+N: Rotation. Rotate Array right by k.
+N: Where does the item at index i go?
+[pause 3]
+A: To i plus k, mod n.
+N: k is ten and the list has seven items. How far do you really rotate?
+[pause 3]
+A: Three. Ten mod seven.
+N: Now the constant space trick. Three reversals. In what order, for a right rotation?
+[pause 5]
+A: Reverse the whole list. Then reverse the first k. Then reverse the rest.
+N: Why does that work?
+[pause 5]
+A: Reversing the whole list moves the last k items to the front, but backward. It moves the rest to the back, also backward. Reversing each block fixes its order.
+N: A rotation that pops from the end and inserts at the front, k times. What's wrong with it?
+[pause 4]
+A: Insert at the front is linear time. Doing it k times is n times k. Too slow.
+[pause 1]
+N: Scans. Best Time to Buy and Sell Stock. One trade.
+N: What two things do you track?
+[pause 3]
+A: The lowest price so far. And the best profit so far.
+N: What does best start at, and why?
+[pause 4]
+A: Zero. If prices only fall, the answer is zero. No trade.
+N: Why not start the lowest price at zero?
+[pause 4]
+A: Prices are positive. The lowest would never update. Start at the first price, or at infinity.
+N: Prices are four, nine, one, six. What's the answer?
+[pause 5]
+A: Five. Buy at four, sell at nine. Or buy at one, sell at six. Both give five.
+[pause 1]
+N: Stock two. Trade as often as you like. What's the whole algorithm?
+[pause 4]
+A: Add up every positive difference between one day and the day before.
+N: Why is greedy safe here?
+[pause 5]
+A: Any climb equals the sum of its daily steps. Taking one step never blocks another. So the sum of all the gains is the best total.
+N: Prices one, three, two, five. Answer?
+[pause 4]
+A: Five. Two from one to three. Three from two to five.
+[pause 1]
+N: Last one for this track. A new problem. You're given temperatures, in order. Find the biggest drop, where the higher reading comes first. Which pattern?
+[pause 5]
+A: A best so far scan. Track the highest reading so far, and the biggest drop from it.
+[pause 1]
+N: That's the first four patterns. Next track: reach, prefix and suffix passes, and design.

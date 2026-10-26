@@ -1,0 +1,6 @@
+# Learners need nothing beyond Python 3.10+ to run labs.
+# These are only for rebuilding the flashcards and audio:
+genanki>=0.13
+kokoro-onnx>=0.4
+soundfile>=0.12
+numpy>=1.26

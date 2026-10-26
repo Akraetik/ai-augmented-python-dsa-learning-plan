@@ -1,0 +1,92 @@
+front,back,deck,tags
+What two things does every coding test grade?,"<ul><li><b>Correctness</b>: right answer on every input, including hidden edge cases</li><li><b>Performance</b>: fast enough on the biggest input</li></ul>",00 Foundations::1 Test Format,s00 concept
+Your function prints the right answer but every test fails. Why?,"You printed instead of returning. The grader reads the <b>return value</b>, which is <code>None</code>.",00 Foundations::1 Test Format,s00 concept
+LeetCode: what do you do with <code>self</code>?,Leave it as the first parameter. Don&#x27;t pass it. Ignore it unless you call a helper: <code>self.helper(...)</code>.,00 Foundations::1 Test Format,s00 syntax
+Codility&#x27;s function looks like what?,"<pre>def solution(A):
+    ...
+    return answer</pre>",00 Foundations::1 Test Format,s00 syntax
+What does <code>-&gt; None</code> in a signature tell you?,Change the input <b>in place</b> and return nothing. The grader inspects the list you were given.,00 Foundations::1 Test Format,s00 concept
+Six edge cases to test on any list problem,<ul><li>empty</li><li>one item</li><li>all the same</li><li>negatives / zero</li><li>already sorted / reversed</li><li>maximum size</li></ul>,00 Foundations::1 Test Format,s00 concept
+What do live interviewers grade besides correct code?,<ul><li>communication (talking through it)</li><li>problem solving (brute force → better)</li><li>clean code</li><li>testing your own code by tracing</li></ul>,00 Foundations::1 Test Format,s00 concept
+What&#x27;s a &quot;debug-this-code&quot; round?,They hand you subtly broken code and watch you find and fix the bugs while explaining. Common in 2026. Train it with Bug Hunt labs.,00 Foundations::1 Test Format,s00 concept
+What does Big-O measure?,"How the <b>work grows</b> as the input grows. Not seconds.<br>Each curve below is one Big-O. Same input, very different work.<br><div class=""img""><img src=""dsa-s00-bigo_ladder.png""></div>",00 Foundations::2 Big-O,s00 concept
+"The Big-O ladder, fastest to slowest","O(1) → O(log n) → O(n) → O(n log n) → O(n²) → O(2ⁿ)<br><div class=""img""><img src=""dsa-s00-bigo_ladder.png""></div>",00 Foundations::2 Big-O,s00 bigo
+Loops one after another: add or multiply?,"<b>Add.</b> n + n = 2n → O(n).<br><div class=""img""><img src=""dsa-s00-code_loops_in_a_row.png""></div>",00 Foundations::2 Big-O,s00 bigo
+Loop inside a loop: add or multiply?,"<b>Multiply.</b> n × n → O(n²).<br><div class=""img""><img src=""dsa-s00-code_nested_loops.png""></div>",00 Foundations::2 Big-O,s00 bigo
+Big-O of <code>3n + 50</code>?,"O(n). Drop constants and smaller terms.<br>At n = 1,000,000, the 50 is noise and 3n still grows in a straight line.<br><div class=""img""><img src=""dsa-s00-bigo_linear.png""></div>",00 Foundations::2 Big-O,s00 bigo
+A loop that halves n each pass is...,"<b>O(log n)</b>. ~20 passes for n = 1,000,000.<br><div class=""img""><img src=""dsa-s00-code_halving.png""></div><div class=""img""><img src=""dsa-s00-bigo_log_n.png""></div>",00 Foundations::2 Big-O,s00 bigo
+Big-O of sorting in Python?,"<b>O(n log n)</b> — a bit worse than O(n), far better than O(n²).<br><div class=""img""><img src=""dsa-s00-bigo_n_log_n.png""></div>",00 Foundations::2 Big-O,s00 bigo
+Roughly how many simple steps per second does Python do?,"About <b>10–50 million</b>. So O(n²) at n = 100,000 takes minutes.<br><div class=""img""><img src=""dsa-s00-table_n_1e5.png""></div>",00 Foundations::2 Big-O,s00 bigo
+"Constraint: n ≤ 1,000. Target Big-O?","O(n²) is fine. A million steps.<br><div class=""img""><img src=""dsa-s00-table_n_1e3.png""></div>",00 Foundations::2 Big-O,s00 bigo constraints
+"Constraint: n ≤ 100,000 (10⁵). Target Big-O?","<b>O(n log n) or O(n).</b> No nested loops over all pairs.<br><div class=""img""><img src=""dsa-s00-table_n_1e5.png""></div>",00 Foundations::2 Big-O,s00 bigo constraints
+Constraint: n ≤ 20. What does it hint?,"Exponential is OK. Try every option (backtracking).<br><div class=""img""><img src=""dsa-s00-table_n_20.png""></div>",00 Foundations::2 Big-O,s00 bigo constraints
+Constraint: n up to 10⁹. Target Big-O?,O(log n) or O(1). Math or binary search.,00 Foundations::2 Big-O,s00 bigo constraints
+Cost of <code>x in my_list</code>?,"<b>O(n).</b> It checks every item. A hidden loop.<br><div class=""img""><img src=""dsa-s00-arr_list_scan.png""></div>",00 Foundations::2 Big-O,s00 bigo hidden
+Cost of <code>x in my_set</code> or <code>x in my_dict</code>?,"<b>O(1)</b> on average. A set jumps straight to the item by its hash, no scanning.<br><div class=""img""><img src=""dsa-s00-code_hidden_in.png""></div>",00 Foundations::2 Big-O,s00 bigo hidden
+Cost of <code>nums.pop(0)</code>? Fix?,"<b>O(n)</b>, shifts everything. Use <code>deque.popleft()</code>: O(1).<br><div class=""img""><img src=""dsa-s00-arr_pop0.png""></div>",00 Foundations::2 Big-O,s00 bigo hidden
+Cost of <code>nums.pop()</code> and <code>nums.append(x)</code>?,"O(1) each. Nothing else in the list moves.<br><div class=""img""><img src=""dsa-s00-arr_pop_end.png""></div>",00 Foundations::2 Big-O,s00 bigo hidden
+Cost of a slice <code>nums[a:b]</code>?,"<b>O(b − a).</b> It copies. Costly inside a loop.<br><div class=""img""><img src=""dsa-s00-code_slice_loop.png""></div>",00 Foundations::2 Big-O,s00 bigo hidden
+"Cost of <code>sum(nums)</code>, <code>max(nums)</code>, <code>min(nums)</code>?","<b>O(n)</b> each. Inside a loop, that&#x27;s O(n²).<br><div class=""img""><img src=""dsa-s00-code_sum_in_loop.png""></div>",00 Foundations::2 Big-O,s00 bigo hidden
+Cost of <code>len(nums)</code>?,O(1). Python stores the length.,00 Foundations::2 Big-O,s00 bigo hidden
+What&#x27;s &quot;space complexity&quot;?,Extra memory used as the input grows. Don&#x27;t count the input itself.,00 Foundations::2 Big-O,s00 concept
+What does &quot;O(1) extra space&quot; usually mean in practice?,A few variables only. Change the input in place. No new list that grows with n.,00 Foundations::2 Big-O,s00 concept
+"Big-O of this?<br><pre>for x in nums:
+    if x + 1 in nums:
+        ...</pre>","<b>O(n²)</b> — <code>in</code> on a list hides a loop. Use a set: O(n).<br><div class=""img""><img src=""dsa-s00-code_hidden_in.png""></div>",00 Foundations::2 Big-O,s00 bigo
+Index vs value,"<b>Index</b> = the position (0, 1, 2...). <b>Value</b> = the thing at that position.",00 Foundations::3 Lists and Strings,s00 concept
+Loop giving index AND value,"<pre>for i, x in enumerate(nums):</pre>",00 Foundations::3 Lists and Strings,s00 syntax
+Last valid index of a list,<code>len(nums) - 1</code>  (or <code>nums[-1]</code> for the last item),00 Foundations::3 Lists and Strings,s00 syntax
+What does <code>nums[1:4]</code> include?,"Indexes 1, 2, 3. The stop index is <b>not</b> included.",00 Foundations::3 Lists and Strings,s00 syntax
+Reversed copy of a list or string,<code>nums[::-1]</code>,00 Foundations::3 Lists and Strings,s00 syntax
+Swap two list items,"<code>nums[i], nums[j] = nums[j], nums[i]</code>",00 Foundations::3 Lists and Strings,s00 syntax
+"<code>range(2, 10, 3)</code> gives?","2, 5, 8 — start, stop (excluded), step.",00 Foundations::3 Lists and Strings,s00 syntax
+Loop over indexes backward,"<code>for i in range(len(nums) - 1, -1, -1):</code>",00 Foundations::3 Lists and Strings,s00 syntax
+Make a 3x3 grid of zeros correctly,<pre>[[0] * 3 for _ in range(3)]</pre>Not <code>[[0] * 3] * 3</code> — that&#x27;s one row shared 3 times.,00 Foundations::3 Lists and Strings,s00 syntax trap
+Does <code>b = a</code> copy a list?,<b>No.</b> Both names point at one list. Copy with <code>a[:]</code> or <code>list(a)</code>.,00 Foundations::3 Lists and Strings,s00 trap
+Can you change a string in place?,No. Strings are <b>immutable</b>. Build a new one.,00 Foundations::3 Lists and Strings,s00 concept
+Fast way to build a string in a loop,"Append pieces to a list, then <code>&quot;&quot;.join(parts)</code> once at the end.",00 Foundations::3 Lists and Strings,s00 syntax
+<code>&quot;  a  b &quot;.split()</code> returns?,"<code>[&#x27;a&#x27;, &#x27;b&#x27;]</code> — splits on any whitespace, drops empties.",00 Foundations::3 Lists and Strings,s00 syntax
+Join words with single spaces,<code>&quot; &quot;.join(words)</code>,00 Foundations::3 Lists and Strings,s00 syntax
+Letter → number 0–25,<code>ord(ch) - ord(&#x27;a&#x27;)</code>,00 Foundations::3 Lists and Strings,s00 syntax
+Is it a letter? A digit? Letter-or-digit?,"<code>ch.isalpha()</code>, <code>ch.isdigit()</code>, <code>ch.isalnum()</code>",00 Foundations::3 Lists and Strings,s00 syntax
+<code>7 // 2</code> and <code>7 % 2</code>?,3 and 1. Floor division and remainder.,00 Foundations::3 Lists and Strings,s00 syntax
+<code>-7 // 2</code>?,"<b>-4.</b> <code>//</code> rounds down, toward negative infinity.",00 Foundations::3 Lists and Strings,s00 syntax trap
+Starting value for &quot;smallest so far&quot;,<code>float(&#x27;inf&#x27;)</code> — or the first item.,00 Foundations::3 Lists and Strings,s00 syntax
+Wrap index i around a list of length n,<code>i % n</code>,00 Foundations::3 Lists and Strings,s00 syntax
+Trigger: &quot;have I seen this before?&quot;,Use a <b>set</b>. O(1) membership.,00 Foundations::4 Dicts Sets and Tools,s00 pattern
+Empty set vs empty dict,<code>set()</code> is a set. <code>{}</code> is a <b>dict</b>.,00 Foundations::4 Dicts Sets and Tools,s00 syntax trap
+Count items with a plain dict,"<code>counts[x] = counts.get(x, 0) + 1</code>",00 Foundations::4 Dicts Sets and Tools,s00 syntax
+Count items in one line,<code>from collections import Counter</code><br><code>Counter(nums)</code>,00 Foundations::4 Dicts Sets and Tools,s00 syntax
+Trigger words for Counter,"frequency, count, how many times, anagram, most common",00 Foundations::4 Dicts Sets and Tools,s00 pattern
+<code>Counter(s).most_common(1)</code> returns?,"A list with one <code>(item, count)</code> pair: the most common item.",00 Foundations::4 Dicts Sets and Tools,s00 syntax
+Group items into lists by a key,<code>groups = defaultdict(list)</code><br><code>groups[key].append(item)</code>,00 Foundations::4 Dicts Sets and Tools,s00 syntax
+Fast removal from the FRONT of a queue,<code>from collections import deque</code> → <code>q.popleft()</code> is O(1).,00 Foundations::4 Dicts Sets and Tools,s00 syntax
+Why can&#x27;t a list be a dict key or set item?,"Lists are mutable, so not hashable. Use a <b>tuple</b>.",00 Foundations::4 Dicts Sets and Tools,s00 concept
+<code>sorted(x)</code> vs <code>x.sort()</code>,<code>sorted</code> returns a new list. <code>.sort()</code> sorts in place and returns <b>None</b>.,00 Foundations::4 Dicts Sets and Tools,s00 syntax trap
+Sort words by length,"<code>sorted(words, key=len)</code>",00 Foundations::4 Dicts Sets and Tools,s00 syntax
+"Sort pairs by second item, biggest first","<code>sorted(pairs, key=lambda p: p[1], reverse=True)</code>",00 Foundations::4 Dicts Sets and Tools,s00 syntax
+Dict comprehension: value → index,"<code>{x: i for i, x in enumerate(nums)}</code>",00 Foundations::4 Dicts Sets and Tools,s00 syntax
+Two Sum in one idea,"Walk the list. For each x, look up <code>target - x</code> in a dict of value → index. Then store x.",00 Foundations::4 Dicts Sets and Tools,s00 pattern problem
+Contains Duplicate in one idea,"Add each item to a set. If it&#x27;s already there, True.",00 Foundations::4 Dicts Sets and Tools,s00 pattern problem
+Valid Anagram in one idea,"Same length, and <code>Counter(s) == Counter(t)</code>. Or compare sorted strings.",00 Foundations::4 Dicts Sets and Tools,s00 pattern problem
+Running sum / prefix sum in one idea,Keep a running total. Each answer = previous answer + current number.,00 Foundations::4 Dicts Sets and Tools,s00 pattern problem
+The 7-step problem routine,<ul><li>Restate (and RETURNS)</li><li>Example by hand</li><li>Edge cases</li><li>Brute force + Big-O</li><li>Find the pattern</li><li>Code</li><li>Test by tracing</li></ul>,00 Foundations::5 Routine and Debugging,s00 routine
+"When stuck, ask this question",<b>What work am I repeating?</b> The fast version remembers something so it doesn&#x27;t redo work.,00 Foundations::5 Routine and Debugging,s00 routine
+How to trace code,"Table with one column per variable. Small input. Step line by line, update the table.",00 Foundations::5 Routine and Debugging,s00 routine
+<code>IndexError: list index out of range</code> usually means,Off-by-one. Reading <code>nums[i + 1]</code> or <code>nums[len(nums)]</code> at the end.,00 Foundations::5 Routine and Debugging,s00 debug
+<code>TypeError: &#x27;NoneType&#x27; ...</code> usually means,Something returned None. Often <code>x = nums.sort()</code>.,00 Foundations::5 Routine and Debugging,s00 debug
+<code>TypeError: unhashable type: &#x27;list&#x27;</code>,A list went into a set or became a dict key. Use a tuple.,00 Foundations::5 Routine and Debugging,s00 debug
+"Program hangs, no output",A <code>while</code> loop never changes its condition. Look for a missing <code>+= 1</code>.,00 Foundations::5 Routine and Debugging,s00 debug
+Rubber-duck debugging,Explain your code line by line out loud. You&#x27;ll often hear the bug.,00 Foundations::5 Routine and Debugging,s00 debug
+"M1 — what is it, and the check?",<b>Index vs value.</b> Using a value as a position (<code>nums[num]</code>).<br>Check: &quot;Is this a position or a thing at a position?&quot; Use <code>enumerate</code> for both.,00 Foundations::6 My Mistakes,s00 mistake
+"M2 — what is it, and the check?",<b>Looping over the wrong thing.</b><br>Check: say what ONE pass of the loop is. &quot;One pass = one character position.&quot; Then write the loop.,00 Foundations::6 My Mistakes,s00 mistake
+"M3 — what is it, and the check?","<b>Meaningless check</b> — a condition that runs but tests nothing.<br>Check: say in English what the condition is true for. If you can&#x27;t, stop.",00 Foundations::6 My Mistakes,s00 mistake
+"M4 — what is it, and the check?",<b>Calculating but not saving</b> (<code>left + 1</code>).<br>Check: every pointer/counter change needs <code>=</code>.,00 Foundations::6 My Mistakes,s00 mistake
+"M5 — what is it, and the check?",<b>Off-by-one at the ends.</b><br>Check: trace a 1-item and 2-item input by hand.,00 Foundations::6 My Mistakes,s00 mistake
+"M6 — what is it, and the check?",<b>Not reading the return type.</b><br>Check: write <code>RETURNS: ___</code> first in the PLAN.,00 Foundations::6 My Mistakes,s00 mistake
+"M7 — what is it, and the check?",<b>Returning success too early</b> inside the loop.<br>Check: True usually comes after the loop. False can come inside.,00 Foundations::6 My Mistakes,s00 mistake
+"Spot the bug:<br><pre>for i in range(len(s)):
+    if ok(s[i]):
+        return True
+    else:
+        return False</pre>","<b>M7.</b> It decides after one item. Return False inside only on failure; return True after the loop (or vice versa, as the problem needs).",00 Foundations::6 My Mistakes,s00 mistake

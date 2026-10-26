@@ -1,0 +1,146 @@
+# 00-4 Rapid Fire Drill
+
+N: Section zero, track four. Rapid fire drill.
+N: Questions come fast. You get a few seconds. Say your answer out loud. Then hear the right one.
+N: Missed one? That's the point. Put this track on repeat.
+[pause 2]
+N: What two things does every coding test grade?
+[pause 4]
+A: Correctness, and performance.
+N: Your function prints the right answer, but fails every test. Why?
+[pause 4]
+A: It printed instead of returning. The grader got None.
+N: The signature says it returns None. What should you do?
+[pause 4]
+A: Change the input in place. Return nothing.
+N: Name four edge cases for a list problem.
+[pause 5]
+A: Empty. One item. All the same. Negatives. And the maximum size.
+N: The Big O ladder, fastest to slowest.
+[pause 5]
+A: One. Log n. n. n log n. n squared. Two to the n.
+N: Loops one after another. Add or multiply?
+[pause 3]
+A: Add.
+N: A loop inside a loop. Add or multiply?
+[pause 3]
+A: Multiply.
+N: A loop that halves n every pass.
+[pause 3]
+A: O of log n.
+N: What does sorting cost?
+[pause 3]
+A: O of n log n.
+N: n is up to one hundred thousand. What's your target?
+[pause 4]
+A: O of n log n, or O of n.
+N: n is up to one thousand. Is a nested loop OK?
+[pause 3]
+A: Yes. O of n squared is fine.
+N: n is twenty or less. What does that hint?
+[pause 4]
+A: Try everything. Backtracking.
+N: Cost of checking if x is in a list?
+[pause 3]
+A: O of n.
+N: Cost of checking if x is in a set?
+[pause 3]
+A: O of one.
+N: Cost of pop zero on a list?
+[pause 3]
+A: O of n. Use a deque.
+N: Cost of a slice of k items?
+[pause 3]
+A: O of k. It copies.
+N: Cost of asking for a list's length?
+[pause 3]
+A: O of one.
+N: What does space complexity measure?
+[pause 4]
+A: Extra memory as the input grows. Not counting the input.
+N: Index versus value. Which is the position?
+[pause 3]
+A: The index.
+N: Loop that gives you index and value together?
+[pause 3]
+A: Enumerate.
+N: Last valid index of a list?
+[pause 3]
+A: Length minus one.
+N: Does a slice include its stop index?
+[pause 3]
+A: No.
+N: Does b equals a copy a list?
+[pause 3]
+A: No. Both names point at the same list.
+N: Can you change a string in place?
+[pause 3]
+A: No. Strings are immutable.
+N: Fast way to build a string in a loop?
+[pause 4]
+A: Collect pieces in a list. Join once.
+N: Split with no arguments. What does it do with extra spaces?
+[pause 4]
+A: Splits on any run of whitespace and drops the empties.
+N: How do you turn a letter into a number from zero to twenty five?
+[pause 4]
+A: Ord of the letter, minus ord of a.
+N: Negative seven, integer divided by two.
+[pause 4]
+A: Negative four. It rounds down.
+N: Trigger: have I seen this before?
+[pause 3]
+A: Set.
+N: Trigger: frequency, or anagram.
+[pause 3]
+A: Counter.
+N: Trigger: grouping things.
+[pause 3]
+A: Default dict of list.
+N: Trigger: removing from the front, over and over.
+[pause 3]
+A: Deque.
+N: Empty curly braces make what?
+[pause 3]
+A: An empty dictionary. Not a set.
+N: Why can't a list be a dictionary key?
+[pause 4]
+A: Lists can change, so they're not hashable. Use a tuple.
+N: What does dot sort return?
+[pause 3]
+A: None. It sorts in place.
+N: Two Sum. Standing on x, what do you look up?
+[pause 4]
+A: Target minus x.
+N: Two Sum. Why check the dictionary before adding x?
+[pause 4]
+A: So x can't pair with itself.
+N: Running sum. How do you get each answer?
+[pause 4]
+A: The previous answer, plus the current number.
+N: Mistake M one?
+[pause 3]
+A: Index versus value.
+N: Mistake M four?
+[pause 3]
+A: Calculating but not saving. Left plus one instead of left plus equals one.
+N: Mistake M five?
+[pause 3]
+A: Off by one at the ends.
+N: Mistake M six?
+[pause 3]
+A: Not reading the return type.
+N: Mistake M seven?
+[pause 3]
+A: Returning true too early, inside the loop.
+N: When you're stuck, what question do you ask?
+[pause 4]
+A: What work am I repeating?
+N: First step of the routine?
+[pause 3]
+A: Restate the problem. And say what it returns.
+N: Last step of the routine?
+[pause 3]
+A: Test it by tracing, line by line.
+[pause 1]
+N: End of the drill. Run it again tomorrow. When you can beat every answer, you're ready for the gate.

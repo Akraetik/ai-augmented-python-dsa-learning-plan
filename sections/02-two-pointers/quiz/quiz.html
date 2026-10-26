@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Section 02 · Two Pointers Checkpoint</title>
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--ink:#1d1d1b;--mut:#6b6a65;--line:#e3e1da;--acc:#2f5d8a;--ok:#2e7d4f;--bad:#b3412f;--code:#f0eee8}
+@media (prefers-color-scheme:dark){:root{--bg:#141412;--card:#1d1d1b;--ink:#ecebe6;--mut:#9c9a93;--line:#33322e;--acc:#7fb0e0;--ok:#6cc58f;--bad:#ec8a78;--code:#262522}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font-size:1.5rem;margin:0 0 4px}.sub{color:var(--mut);margin:0 0 24px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:0 0 14px}
+.qh{display:flex;justify-content:space-between;gap:8px;color:var(--mut);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+.qt{font-weight:600;margin:6px 0 10px}
+pre{background:var(--code);border-radius:6px;padding:10px 12px;overflow-x:auto;font:14px/1.45 ui-monospace,Consolas,monospace;margin:0 0 10px}
+label{display:block;padding:8px 10px;border:1px solid var(--line);border-radius:6px;margin:6px 0;cursor:pointer}
+label:hover{border-color:var(--acc)}input{margin-right:8px}
+label.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
+label.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,transparent)}
+.why{display:none;margin-top:10px;padding:10px;border-left:3px solid var(--acc);background:var(--code);border-radius:4px;font-size:.95rem}
+.done .why{display:block}
+.study{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:.9rem;color:var(--mut)}
+.study b{color:var(--ink)}
+ol.miss li{margin:4px 0}
+button{font:inherit;padding:10px 18px;border-radius:8px;border:1px solid var(--acc);background:var(--acc);color:var(--bg);cursor:pointer;margin:4px 8px 4px 0}
+button.ghost{background:transparent;color:var(--acc)}
+#result{display:none;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:0 0 20px}
+.bar{height:10px;background:var(--line);border-radius:5px;overflow:hidden;margin:4px 0 10px}.bar i{display:block;height:100%}
+.row{display:flex;justify-content:space-between;font-size:.95rem}
+.big{font-size:2rem;font-weight:700}
+code{font-family:ui-monospace,Consolas,monospace;background:var(--code);padding:1px 4px;border-radius:3px}
+</style></head><body><main>
+<h1>Section 02 · Two Pointers Checkpoint</h1><p class="sub">22 questions · pass mark 85% · no notes, no IDE, no AI</p>
+<div id="result"></div>
+<form id="f"></form>
+<button id="submit">Score it</button><button class="ghost" id="reset">Start over</button>
+</main>
+<script>
+const QUIZ = {"title": "Section 02 \u00b7 Two Pointers Checkpoint", "pass_mark": 0.85, "pass_msg": "This is one of four gate checks. Now do the cold solves in the section README.", "fail_msg": "Follow the study list for each miss, redo those labs, and retake in two days.", "topics": {"ends": "Opposite ends (2.1)", "same": "Same direction (2.2)", "weaker": "Shrink the weaker side (2.3)", "ksum": "Sort + two pointers / 3Sum (2.4)", "water": "O(1)-space water (2.5)", "pick": "Picking the pattern"}, "review": {"ends": "Lesson 2.1. Redo labs 01, 03, 04 and the Bug Hunt (09).", "same": "Lesson 2.2. Redo lab 02.", "weaker": "Lesson 2.3. Redo lab 05 and say the proof out loud.", "ksum": "Lesson 2.4. Redo labs 06 and 08. Trace the duplicate skips by hand.", "water": "Lesson 2.5. Re-trace the table, then redo lab 07.", "pick": "Read review/TRIGGERS.md. Cover the right columns and name each pattern."}, "questions": [{"id": "t01", "study": "2.1 Opposite Ends \u203a The idea", "topic": "ends", "q": "Why does an opposite-ends two-pointer loop run in O(n)?", "options": ["It sorts first", "Each step discards at least one item", "It uses a dict", "It stops halfway"], "answer": 1, "why": "Every iteration moves at least one pointer inward. At most n moves in total."}, {"id": "t02", "study": "2.1 Opposite Ends \u203a Use 2 \u2014 sorted pairs", "topic": "ends", "q": "Two Sum II on a sorted list: the current sum is too SMALL. What do you do?", "options": ["right -= 1", "left += 1", "Move both", "Restart from the ends"], "answer": 1, "why": "Only moving left can bring in a bigger number."}, {"id": "t03", "study": "2.1 Opposite Ends \u203a Use 2 (the one-sentence proof)", "topic": "ends", "q": "Why is it safe to discard `numbers[left]` when the sum is too small?", "options": ["It's the smallest number", "Even the biggest remaining partner, `numbers[right]`, isn't enough", "Sorted lists have no duplicates", "It was already used"], "answer": 1, "why": "If the biggest possible partner fails, no partner works for numbers[left]."}, {"id": "t04", "study": "2.1 Opposite Ends \u203a Use 2 (1-indexed answer)", "topic": "ends", "q": "Two Sum II finds the pair at indexes 0 and 3. What do you return?", "options": ["[0, 3]", "[1, 4]", "[0, 4]", "[3, 0]"], "answer": 1, "why": "The problem asks for 1-indexed positions. Mistake M6: read the return spec."}, {"id": "t05", "study": "2.1 Opposite Ends \u203a Use 1 \u2014 symmetry checks", "topic": "ends", "q": "Valid Palindrome on `\".,!\"` (all punctuation). The inner skip loop has no `left < right` check. What happens?", "options": ["Returns True", "Returns False", "`left` runs past the end: IndexError", "Infinite loop"], "answer": 2, "why": "Nothing is alphanumeric, so the skip loop keeps going off the end. Guard every inner loop with `left < right`."}, {"id": "t06", "study": "2.1 Opposite Ends \u203a Use 3 \u2014 fill from the biggest end", "topic": "ends", "q": "Squares of `[-6, -2, 1, 5]` in O(n). Which square goes into the LAST output slot first?", "options": ["25", "36", "1", "4"], "answer": 1, "why": "|\u22126| > |5|. The biggest square is at one of the ends."}, {"id": "t07", "study": "2.2 Same Direction \u203a Is Subsequence", "topic": "same", "q": "Is Subsequence: which pointer moves on every step?", "options": ["The one in s", "The one in t", "Both, always", "Neither"], "answer": 1, "why": "j walks t every step. i (in s) moves only on a match."}, {"id": "t08", "study": "2.2 Same Direction \u203a Is Subsequence", "topic": "same", "q": "Is `\"aec\"` a subsequence of `\"abcde\"`?", "options": ["Yes", "No"], "answer": 1, "why": "After matching 'e' at index 4, there's no 'c' left. Order matters."}, {"id": "t09", "study": "2.2 Same Direction \u203a Edge cases", "topic": "same", "q": "Is the empty string a subsequence of `\"xyz\"`?", "options": ["Yes", "No"], "answer": 0, "why": "Delete everything from t. Zero characters to match means i == len(s) right away."}, {"id": "t10", "study": "2.3 Shrink the Weaker Side \u203a The problem (area formula)", "topic": "weaker", "q": "Container: lines of height 6 at index 2 and height 9 at index 7. Area?", "options": ["30", "45", "54", "15"], "answer": 0, "why": "Width 5 \u00d7 shorter line 6 = 30."}, {"id": "t11", "study": "2.3 Shrink the Weaker Side \u203a Two pointers: start wide", "topic": "weaker", "q": "Container: left line is height 3, right line is height 10. Which pointer moves?", "options": ["right", "left", "both", "neither, stop"], "answer": 1, "why": "The short line caps every narrower container that keeps it. It's finished. Move it."}, {"id": "t12", "study": "2.3 Shrink the Weaker Side \u203a Two pointers (the proof)", "topic": "weaker", "q": "Why can moving the TALLER line never help?", "options": ["It can, sometimes", "The short line still caps the level, and the width shrinks", "Taller lines hold no water", "It breaks sorting"], "answer": 1, "why": "Same cap, less width: area can only fall."}, {"id": "t13", "study": "2.4 Sort First \u203a Turn three into one + two", "topic": "ksum", "q": "3Sum: after sorting and fixing `nums[i]`, what's left to solve?", "options": ["Binary search for one number", "Two Sum II on the rest, for \u2212nums[i]", "Another 3Sum", "A prefix sum"], "answer": 1, "why": "Fixing one number turns 3Sum into a sorted pair search."}, {"id": "t14", "study": "2.4 Sort First \u203a The hard part: no duplicate triples", "topic": "ksum", "q": "3Sum: which skip keeps `[-1, -1, 2]` while avoiding duplicate fixed values?", "options": ["skip if nums[i] == nums[i + 1]", "skip if i > 0 and nums[i] == nums[i - 1]", "skip if nums[i] < 0", "no skip"], "answer": 1, "why": "Skipping the LATER copies keeps the first one, which can still pair with the second."}, {"id": "t15", "study": "2.4 Sort First \u203a The hard part (after a match)", "topic": "ksum", "q": "3Sum on `[-2, 0, 0, 2, 2]`. After recording `[-2, 0, 2]`, what must happen before the next check?", "options": ["Stop the loop", "Move left past both 0s and right past both 2s", "Move only left", "Reset left and right"], "answer": 1, "why": "Otherwise the same triple is recorded again."}, {"id": "t16", "study": "2.4 Sort First \u203a An early exit", "topic": "ksum", "q": "3Sum: the fixed number `nums[i]` is 5 (list sorted). What do you do?", "options": ["Continue", "Break: everything after it is positive", "Skip one", "Reverse the list"], "answer": 1, "why": "Three positives can't sum to 0."}, {"id": "t17", "study": "2.4 Sort First \u203a Turn three into one + two (cost)", "topic": "ksum", "q": "Big-O of 3Sum with sort + two pointers?", "options": ["O(n log n)", "O(n\u00b2)", "O(n\u00b3)", "O(n)"], "answer": 1, "why": "n fixed values \u00d7 an O(n) pair scan. The sort is smaller."}, {"id": "t18", "study": "2.5 Water with Two Pointers \u203a The key insight", "topic": "water", "q": "Two-pointer water: left_max = 3, right_max = 7. Which side's water level is known for sure?", "options": ["left", "right", "both", "neither"], "answer": 0, "why": "Left's own max is exact (3), and the right side has a taller bar, so the level at left is 3."}, {"id": "t19", "study": "2.5 Water with Two Pointers \u203a Where we left it", "topic": "water", "q": "What does the two-pointer water solution save compared to the prefix/suffix version?", "options": ["Time: O(n) \u2192 O(log n)", "Space: O(n) \u2192 O(1)", "Nothing", "It handles negatives"], "answer": 1, "why": "No max_left / max_right lists. Same O(n) time."}, {"id": "t20", "study": "Review: review/TRIGGERS.md", "topic": "pick", "q": "\"Sorted list. Count pairs whose sum is below k.\" Best pattern?", "options": ["Opposite-ends two pointers", "Prefix sum", "Boyer\u2013Moore", "Sliding window"], "answer": 0, "why": "Sorted + pair condition. If nums[l] + nums[r] < k, every pair (l, l+1..r) works: add r \u2212 l, move left."}, {"id": "t21", "study": "Review: review/TRIGGERS.md", "topic": "pick", "q": "\"Merge two sorted lists into a new sorted list.\" Best pattern?", "options": ["Same-direction pointers, one per list", "Opposite ends", "Sort the concatenation only", "Counting"], "answer": 0, "why": "Walk both lists forward, take the smaller head each step. O(m + n)."}, {"id": "t22", "study": "Review: review/TRIGGERS.md", "topic": "pick", "q": "\"Is this string a palindrome if you may delete at most one character?\" First tool?", "options": ["Opposite-ends pointers; on a mismatch, try skipping either side once", "Counter", "Sorting", "Prefix sums"], "answer": 0, "why": "LeetCode 680. Same two pointers, with one extra check when the characters differ."}]};
+const f = document.getElementById('f');
+function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function inline(s){return esc(s).replace(/`([^`]+)`/g,'<code>$1</code>')}
+QUIZ.questions.forEach((q,i)=>{
+  const d=document.createElement('div');d.className='q';d.id='q'+i;
+  let h=`<div class="qh"><span>Q${i+1}</span><span>${esc(QUIZ.topics[q.topic]||q.topic)}</span></div><div class="qt">${inline(q.q)}</div>`;
+  if(q.code) h+=`<pre>${esc(q.code)}</pre>`;
+  q.options.forEach((o,j)=>{h+=`<label><input type="radio" name="q${i}" value="${j}">${inline(o)}</label>`});
+  h+=`<div class="why">${inline(q.why)}${q.study?`<div class="study">If you missed it, study: <b>${inline(q.study)}</b></div>`:''}</div>`;d.innerHTML=h;f.appendChild(d);
+});
+document.getElementById('submit').onclick=()=>{
+  let right=0;const per={};const missed=[];
+  QUIZ.questions.forEach((q,i)=>{
+    const d=document.getElementById('q'+i);d.classList.add('done');
+    const pick=d.querySelector('input:checked');const labels=d.querySelectorAll('label');
+    labels.forEach(l=>l.classList.remove('right','wrong'));
+    labels[q.answer].classList.add('right');
+    per[q.topic]=per[q.topic]||[0,0];per[q.topic][1]++;
+    if(pick&&+pick.value===q.answer){right++;per[q.topic][0]++}
+    else{if(pick)labels[+pick.value].classList.add('wrong');missed.push(i+1)}
+  });
+  const n=QUIZ.questions.length,pct=Math.round(100*right/n),pass=right/n>=QUIZ.pass_mark;
+  let h=`<div class="big">${right}/${n} · ${pct}%</div><p>${pass?'<b style="color:var(--ok)">Gate passed.</b> '+QUIZ.pass_msg:'<b style="color:var(--bad)">Not yet.</b> '+QUIZ.fail_msg}</p><h3>By topic</h3>`;
+  const weak=[];
+  Object.entries(per).forEach(([t,[a,b]])=>{const p=a/b;if(p<0.8)weak.push(t);
+    h+=`<div class="row"><span>${esc(QUIZ.topics[t]||t)}</span><span>${a}/${b}</span></div><div class="bar"><i style="width:${100*p}%;background:${p>=0.8?'var(--ok)':'var(--bad)'}"></i></div>`});
+  if(weak.length){h+='<h3>Review these</h3><ul>'+weak.map(t=>`<li><b>${esc(QUIZ.topics[t]||t)}</b>: ${inline(QUIZ.review[t]||'')}</li>`).join('')+'</ul>'}
+  if(missed.length){h+='<h3>Study list for your misses</h3><ol class="miss">'+missed.map(n=>{const q=QUIZ.questions[n-1];return `<li>Q${n}: ${inline(q.study||QUIZ.review[q.topic]||'')}</li>`}).join('')+'</ol>'}
+  h+='<button id="copy">Copy results for Claude</button>';
+  const r=document.getElementById('result');r.innerHTML=h;r.style.display='block';window.scrollTo(0,0);
+  const summary=`${QUIZ.title}: ${right}/${n} (${pct}%). Weak topics: ${weak.map(t=>QUIZ.topics[t]).join(', ')||'none'}. Missed: ${missed.map(n=>'Q'+n+' ('+(QUIZ.questions[n-1].study||QUIZ.topics[QUIZ.questions[n-1].topic])+')').join('; ')||'none'}.`;
+  document.getElementById('copy').onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(summary);document.getElementById('copy').textContent='Copied'};
+  try{const k='quiz:'+QUIZ.title;const hist=JSON.parse(localStorage.getItem(k)||'[]');hist.push({when:new Date().toISOString(),right,n});localStorage.setItem(k,JSON.stringify(hist.slice(-20)))}catch(e){}
+};
+document.getElementById('reset').onclick=()=>{f.reset();document.querySelectorAll('.q').forEach(d=>{d.classList.remove('done');d.querySelectorAll('label').forEach(l=>l.classList.remove('right','wrong'))});document.getElementById('result').style.display='none';window.scrollTo(0,0)};
+</script></body></html>

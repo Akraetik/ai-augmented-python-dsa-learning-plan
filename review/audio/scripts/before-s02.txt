@@ -1,0 +1,155 @@
+# Review before Section 02
+N: Cumulative review. You're about to start section 2. This track mixes questions from every section you've finished. The newest gets the most time. Older ones come back less often, but they always come back.
+N: Say each answer out loud before you hear it.
+[pause 2]
+N: From section 1, array string. 30 questions.
+[pause 1]
+N: Remove Duplicates two keep rule?
+[pause 4]
+A: Write under two, or different from write minus two.
+N: Merge Sorted Array loops while what?
+[pause 3]
+A: While list two has items left.
+N: Mistake M seven?
+[pause 3]
+A: Returning true too early.
+N: Gas Station. Tank goes negative at i. New start?
+[pause 3]
+A: i plus one.
+N: H Index. Sort which way?
+[pause 3]
+A: Biggest first.
+N: Mistake M two?
+[pause 3]
+A: Looping over the wrong thing.
+N: Jump Game. Stuck when?
+[pause 3]
+A: The index is past reach.
+N: Stock one tracks?
+[pause 3]
+A: Lowest price, and best profit.
+N: Roman building. Method?
+[pause 3]
+A: Greedy, biggest piece first, with the six pairs.
+N: First step of any rotation?
+[pause 3]
+A: k mod equals n.
+N: Remove Duplicates keep rule?
+[pause 4]
+A: Write is zero, or different from write minus one.
+N: Mistake M four?
+[pause 3]
+A: Calculating but not saving.
+N: Empty product starts at?
+[pause 3]
+A: One.
+N: Product Except Self. Why not divide?
+[pause 3]
+A: Zeros.
+N: Last word without split. Walk which way?
+[pause 3]
+A: Backward.
+N: Mistake M five?
+[pause 3]
+A: Off by one at the ends.
+N: Water above one bar?
+[pause 4]
+A: Smaller of max left and max right, minus the bar.
+N: Text Justification. Seven spaces, three gaps?
+[pause 3]
+A: Three, two, two.
+N: Boyer Moore. When the count hits zero?
+[pause 3]
+A: The current item becomes the candidate.
+N: Delete from the middle of the list in constant time. How?
+[pause 4]
+A: Swap with the last item, fix its index, pop the end.
+N: The three steps of read and write?
+[pause 5]
+A: Write starts at zero. Copy keepers to write and move it. Return write.
+N: In place, return k, first k elements. Pattern?
+[pause 3]
+A: Read and write pointers.
+N: H Index. Compare what to what?
+[pause 4]
+A: Citations to the paper's position, counting from one.
+N: Three reversals for a right rotation?
+[pause 4]
+A: All. First k. The rest.
+N: Substring search. Last start?
+[pause 3]
+A: n minus m.
+N: Rotate right. Where does index i go?
+[pause 3]
+A: i plus k, mod n.
+N: Zigzag special case?
+[pause 3]
+A: One row. Return the string.
+N: Constant time insert, delete, and random. Structures?
+[pause 3]
+A: A list and a dictionary of value to index.
+N: Mistake M six?
+[pause 3]
+A: Ignoring the return type.
+N: Stock two answer?
+[pause 3]
+A: Sum of every positive daily change.
+[pause 1]
+N: From section 0, foundations. 18 questions.
+[pause 1]
+N: n is twenty or less. What does that hint?
+[pause 4]
+A: Try everything. Backtracking.
+N: Cost of a slice of k items?
+[pause 3]
+A: O of k. It copies.
+N: Cost of pop zero on a list?
+[pause 3]
+A: O of n. Use a deque.
+N: Your function prints the right answer, but fails every test. Why?
+[pause 4]
+A: It printed instead of returning. The grader got None.
+N: Last step of the routine?
+[pause 3]
+A: Test it by tracing, line by line.
+N: Last valid index of a list?
+[pause 3]
+A: Length minus one.
+N: Mistake M six?
+[pause 3]
+A: Not reading the return type.
+N: What does sorting cost?
+[pause 3]
+A: O of n log n.
+N: Empty curly braces make what?
+[pause 3]
+A: An empty dictionary. Not a set.
+N: Running sum. How do you get each answer?
+[pause 4]
+A: The previous answer, plus the current number.
+N: Can you change a string in place?
+[pause 3]
+A: No. Strings are immutable.
+N: Two Sum. Why check the dictionary before adding x?
+[pause 4]
+A: So x can't pair with itself.
+N: Mistake M four?
+[pause 3]
+A: Calculating but not saving. Left plus one instead of left plus equals one.
+N: Trigger: have I seen this before?
+[pause 3]
+A: Set.
+N: How do you turn a letter into a number from zero to twenty five?
+[pause 4]
+A: Ord of the letter, minus ord of a.
+N: Two Sum. Standing on x, what do you look up?
+[pause 4]
+A: Target minus x.
+N: Cost of asking for a list's length?
+[pause 3]
+A: O of one.
+N: Fast way to build a string in a loop?
+[pause 4]
+A: Collect pieces in a list. Join once.
+[pause 1]
+N: End of review. 48 questions. Missed any? Find them in the review sheets, then start section 2.

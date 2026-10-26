@@ -1,0 +1,94 @@
+# 02-2 Two Pointers Walkthrough
+
+N: Section two, track two. The walkthrough. Answer out loud before the answer voice.
+[pause 1]
+N: Valid Palindrome. Ignore anything that isn't a letter or digit. Ignore case. Does it read the same both ways?
+N: What do you compare at each step?
+[pause 3]
+A: The character at left and the character at right, both lowercased.
+N: And when the character at left is a comma?
+[pause 3]
+A: Skip it. Move left forward until it's on a letter or digit.
+N: That skip loop needs a second check. What is it?
+[pause 4]
+A: Left is less than right. Otherwise a string of only punctuation runs off the end.
+[pause 1]
+N: Two Sum two. Sorted list. Find the pair that adds to the target. Return positions starting from one.
+N: Numbers are one, three, four, eight. Target is seven. Start at the ends. One plus eight is nine. What moves?
+[pause 4]
+A: Right moves. Nine is too big. Only a smaller right number can bring it down.
+N: Now one plus four is five. What moves?
+[pause 3]
+A: Left moves. Five is too small.
+N: Three plus four is seven. What do you return?
+[pause 4]
+A: Two and three. The positions, counted from one.
+N: Say the reason it's safe to drop the left number when the sum is too small.
+[pause 6]
+A: The right number is the biggest partner left. If even it isn't enough, the left number has no partner.
+[pause 1]
+N: Squares of a Sorted Array. Negative four, negative one, zero, three, ten. Return the squares, sorted.
+N: Where are the biggest squares?
+[pause 4]
+A: At the two ends. The most negative and the most positive.
+N: So where does each big square go?
+[pause 3]
+A: Into the last open slot of the answer. Fill from the back.
+[pause 1]
+N: Is Subsequence. Is a c e inside a b c d e, in order?
+N: Which pointer moves every step?
+[pause 3]
+A: The one in the longer string, t.
+N: When does the other one move?
+[pause 3]
+A: Only on a match.
+N: When do you return true?
+[pause 3]
+A: When the pointer in s reaches the end of s.
+[pause 1]
+N: Container With Most Water. What's the area of two lines?
+[pause 4]
+A: The width between them, times the shorter line.
+N: The left line is three tall. The right line is ten tall. Which one moves?
+[pause 3]
+A: The left. The shorter one.
+N: Why?
+[pause 6]
+A: Every container that keeps the short line is narrower and no taller. None can beat the one you just measured.
+[pause 1]
+N: Three Sum. Find every unique triple that sums to zero.
+N: First step?
+[pause 3]
+A: Sort the list.
+N: Then?
+[pause 5]
+A: For each index i, fix that number, and run Two Sum two on the rest, looking for minus that number.
+N: Big O?
+[pause 3]
+A: O of n squared.
+N: Name the three duplicate skips.
+[pause 8]
+A: Skip a fixed number that equals the one before it. After a match, move left past repeats. And move right past repeats.
+N: For the fixed number, why compare with the one before, and not the one after?
+[pause 6]
+A: Comparing with the one after skips the first copy. Then a triple like minus one, minus one, two is lost.
+N: The fixed number is positive. What now?
+[pause 3]
+A: Break. Everything after it is positive too.
+[pause 1]
+N: Three Sum Closest. What changes?
+[pause 5]
+A: Track the sum closest to the target. Return right away on an exact hit. No duplicate skipping.
+[pause 1]
+N: Trapping Rain Water with two pointers. Left max is three. Right max is seven. Which side is ready?
+[pause 4]
+A: The left side. Its level is three for sure, because the right already has a taller bar.
+N: What did this version save over section one's?
+[pause 3]
+A: Space. No extra lists. O of one.
+[pause 1]
+N: Last one. A new problem. Sorted list. Count the pairs whose sum is below k. Which shape?
+[pause 5]
+A: Opposite ends. When the pair at left and right is below k, every pair from left to anything up to right works. Add right minus left, then move left.
+[pause 1]
+N: That's the walkthrough. Next track is the rapid fire drill.

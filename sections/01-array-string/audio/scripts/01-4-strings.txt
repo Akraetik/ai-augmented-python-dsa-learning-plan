@@ -1,0 +1,123 @@
+# 01-4 Strings
+
+N: Section one, track four. Strings. Lesson one point eight.
+N: Eight problems. Each one trains a different string skill. Let's go through them.
+[pause 1]
+N: First, the ground rules. A string reads like a list. Index it. Slice it. Loop over it. But you can't change it.
+N: To build a new string, what do you do?
+[pause 3]
+A: Collect the pieces in a list. Join them once at the end.
+[pause 1]
+N: Length of Last Word. Return the length of the last word. There may be spaces at the end.
+N: What's the one line answer?
+[pause 4]
+A: Split the string, take the last word, and return its length.
+N: Now the interviewer says: no split. Walk me through it.
+[pause 6]
+A: Start at the last index. Walk backward past the spaces. Then count letters until you hit a space or the start.
+N: In those while loops, which check comes first: i is at least zero, or the character is a space?
+[pause 4]
+A: i is at least zero, first. If i hits minus one, Python stops before reading the character.
+N: That's called short circuiting. It's how you guard an index.
+[pause 1]
+N: Longest Common Prefix. The longest beginning shared by every word.
+N: Picture the words stacked as rows. Which way do you read?
+[pause 3]
+A: Down the columns. One character position at a time.
+N: Finish this sentence. One pass of my outer loop equals one what?
+[pause 3]
+A: One character position.
+N: That sentence is the fix for mistake M two. You've hit it on this problem before.
+N: Two reasons to stop. Name them.
+[pause 4]
+A: A word has a different letter in this column. Or a word is too short to have this column at all.
+[pause 1]
+N: Reverse Words in a String. Return the words in reverse order, with single spaces, and nothing extra at the ends.
+N: The one liner?
+[pause 4]
+A: Split, reverse, and join with a single space.
+N: Why does that already handle every spacing case?
+[pause 4]
+A: Split with no arguments splits on any run of spaces and drops the empty pieces.
+[pause 1]
+N: Find the First Occurrence. Where does the needle first appear in the haystack?
+N: The method. Try each possible start. At each one, compare letters until one differs. If you match the whole needle, return the start.
+N: Haystack is ten long. Needle is four. What's the last start worth trying?
+[pause 4]
+A: Six. Ten minus four.
+N: So your range goes up to what?
+[pause 4]
+A: Range of n minus m, plus one. So it includes six.
+N: That's mistake M five territory. Write the bound in your plan.
+[pause 1]
+N: Roman to Integer. I is one. V is five. X is ten. L is fifty. C is one hundred. D is five hundred. M is one thousand.
+N: Usually you add. When do you subtract?
+[pause 4]
+A: When the next symbol is bigger than this one. Like I before V, or X before C.
+N: What about the last symbol?
+[pause 3]
+A: It has no next. Always add it. Guard the peek.
+N: X I V. What number?
+[pause 3]
+A: Fourteen.
+N: M C M X C I V?
+[pause 6]
+A: Nineteen ninety four.
+[pause 1]
+N: Integer to Roman. The reverse.
+N: The method is greedy. Take the biggest piece that fits. Subtract. Repeat.
+N: Thirteen pieces, biggest first. Try to say them.
+[pause 8]
+A: One thousand, M. Nine hundred, C M. Five hundred, D. Four hundred, C D. One hundred, C. Ninety, X C. Fifty, L. Forty, X L. Ten, X. Nine, I X. Five, V. Four, I V. One, I.
+N: Why does including nine hundred, four hundred, and the other pairs matter?
+[pause 5]
+A: Without them, greedy would write four as I I I I. The pairs make the greedy choice correct.
+[pause 1]
+N: Zigzag Conversion. Write the string down and up across a number of rows, then read each row left to right.
+N: Do you hunt for an index formula?
+[pause 3]
+A: No. Simulate it.
+N: What state do you keep?
+[pause 5]
+A: One list per row. The current row. And a step that's plus one going down, or minus one going up.
+N: When does the step flip?
+[pause 4]
+A: At the top row and at the bottom row.
+N: What's the special case?
+[pause 4]
+A: One row. Return the string unchanged. Otherwise the step pushes past the only row.
+N: A B C D E, two rows. What comes out?
+[pause 5]
+A: A C E, then B D. So A C E B D.
+[pause 1]
+N: Text Justification. The hard one. It's hard because of bookkeeping, not cleverness.
+N: Lay out words into lines of an exact width. Pack as many words as fit. Spread the extra spaces. Left gaps get the extras first. The last line is left justified.
+N: How do you break it up?
+[pause 6]
+A: Three helpers. One picks which words fit on a line. One justifies a full line. One left justifies the last line or a single word line.
+N: Seven spaces, three gaps. How are they spread?
+[pause 5]
+A: Three, two, two. Div mod of seven by three is two with one left over. The first gap gets the extra.
+N: Write each helper alone. Test each one in a scratch file. That's how you'd do it at work, too.
+[pause 1]
+N: Quick fire. Name the skill.
+N: Trailing spaces.
+[pause 2]
+A: Walk backward, and guard the index.
+N: A prefix shared by every word.
+[pause 2]
+A: Column by column.
+N: Messy spacing.
+[pause 2]
+A: Split with no arguments.
+N: Symbols to numbers.
+[pause 2]
+A: A lookup table, and peek at the next symbol.
+N: A strange layout.
+[pause 2]
+A: Simulate with a direction flag.
+N: A long messy job.
+[pause 2]
+A: Break it into helpers.
+[pause 1]
+N: That's strings. The last track is the rapid fire drill for the whole section. Put it on repeat in the week before your gate.

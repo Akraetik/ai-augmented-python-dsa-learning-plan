@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+tools/models/
+.DS_Store
+.vscode/
+.idea/
+scratch*.py

@@ -1,0 +1,191 @@
+# Review before Section 03
+N: Cumulative review. You're about to start section 3. This track mixes questions from every section you've finished. The newest gets the most time. Older ones come back less often, but they always come back.
+N: Say each answer out loud before you hear it.
+[pause 2]
+N: From section 2, two pointers. 29 questions.
+[pause 1]
+N: Sum too big. Which pointer?
+[pause 3]
+A: Right moves left.
+N: Three Sum. First step?
+[pause 3]
+A: Sort.
+N: Container. Why?
+[pause 4]
+A: Narrower and no taller can't win.
+N: Maximize something capped by the shorter side. Shape?
+[pause 3]
+A: Shrink the weaker side.
+N: Squares of a sorted array. Biggest squares are where?
+[pause 3]
+A: At the ends.
+N: Three Sum Big O?
+[pause 3]
+A: n squared.
+N: Container area?
+[pause 3]
+A: Width times the shorter line.
+N: Three Sum. Skip a fixed value when it equals which neighbor?
+[pause 3]
+A: The one before it.
+N: New bug. Too small, but you move right. Name it.
+[pause 3]
+A: Moving the wrong pointer.
+N: Reads the same both ways. Shape?
+[pause 3]
+A: Opposite ends.
+N: Two pointers turns which Big O into which?
+[pause 3]
+A: O of n squared into O of n.
+N: Three Sum. Fixed number is positive?
+[pause 3]
+A: Break.
+N: Why drop the left number when the sum is too small?
+[pause 4]
+A: Even the biggest partner isn't enough.
+N: Unsorted list, find a pair that sums to target. Two pointers?
+[pause 4]
+A: No. Use a dictionary. Or sort first, if positions don't matter.
+N: In order across two strings. Shape?
+[pause 3]
+A: Same direction. One pointer each.
+N: Two pointer water. Which side do you process?
+[pause 3]
+A: The side with the smaller max.
+N: Less than, or less than or equal, for pairs?
+[pause 3]
+A: Less than. A pair needs two different items.
+N: Container. Which line moves?
+[pause 3]
+A: The shorter one.
+N: Is Subsequence. Fast pointer is in which string?
+[pause 3]
+A: t, the longer one.
+N: And you fill the answer from?
+[pause 3]
+A: The back.
+N: Sum too small. Which pointer?
+[pause 3]
+A: Left moves right.
+N: Three Sum Closest. Need to skip duplicates?
+[pause 3]
+A: No.
+N: Sorted list, find a pair. Shape?
+[pause 3]
+A: Opposite ends.
+N: Three numbers that sum to zero. Shape?
+[pause 3]
+A: Sort, fix one, two pointers on the rest.
+N: Palindrome skip loops need what guard?
+[pause 3]
+A: Left less than right.
+N: Slow pointer moves when?
+[pause 3]
+A: On a match.
+N: Two Sum two returns what kind of index?
+[pause 3]
+A: One-indexed.
+N: Three Sum. After a match, what then?
+[pause 4]
+A: Move both pointers past repeats.
+N: Two pointer water. Space?
+[pause 3]
+A: O of one.
+[pause 1]
+N: From section 1, array string. 18 questions.
+[pause 1]
+N: H Index. Sort which way?
+[pause 3]
+A: Biggest first.
+N: Roman parsing. When to subtract?
+[pause 3]
+A: When the next symbol is bigger.
+N: Remove Duplicates keep rule?
+[pause 4]
+A: Write is zero, or different from write minus one.
+N: Jump Game. Stuck when?
+[pause 3]
+A: The index is past reach.
+N: The three steps of read and write?
+[pause 5]
+A: Write starts at zero. Copy keepers to write and move it. Return write.
+N: Stock two answer?
+[pause 3]
+A: Sum of every positive daily change.
+N: Constant time insert, delete, and random. Structures?
+[pause 3]
+A: A list and a dictionary of value to index.
+N: Roman building. Method?
+[pause 3]
+A: Greedy, biggest piece first, with the six pairs.
+N: For each i, everything else. Pattern?
+[pause 3]
+A: Prefix pass and suffix pass.
+N: Empty product starts at?
+[pause 3]
+A: One.
+N: Product Except Self. Why not divide?
+[pause 3]
+A: Zeros.
+N: Substring search. Last start?
+[pause 3]
+A: n minus m.
+N: Water above one bar?
+[pause 4]
+A: Smaller of max left and max right, minus the bar.
+N: Boyer Moore. When the count hits zero?
+[pause 3]
+A: The current item becomes the candidate.
+N: Gas Station. Tank goes negative at i. New start?
+[pause 3]
+A: i plus one.
+N: Does nums equals new list change the caller's list?
+[pause 3]
+A: No.
+N: Mistake M six?
+[pause 3]
+A: Ignoring the return type.
+N: Merge Sorted Array fills from which end?
+[pause 3]
+A: The back.
+[pause 1]
+N: From section 0, foundations. 12 questions.
+[pause 1]
+N: Trigger: removing from the front, over and over.
+[pause 3]
+A: Deque.
+N: Cost of checking if x is in a set?
+[pause 3]
+A: O of one.
+N: Cost of asking for a list's length?
+[pause 3]
+A: O of one.
+N: Negative seven, integer divided by two.
+[pause 4]
+A: Negative four. It rounds down.
+N: Mistake M five?
+[pause 3]
+A: Off by one at the ends.
+N: Loop that gives you index and value together?
+[pause 3]
+A: Enumerate.
+N: How do you turn a letter into a number from zero to twenty five?
+[pause 4]
+A: Ord of the letter, minus ord of a.
+N: Empty curly braces make what?
+[pause 3]
+A: An empty dictionary. Not a set.
+N: Fast way to build a string in a loop?
+[pause 4]
+A: Collect pieces in a list. Join once.
+N: Two Sum. Why check the dictionary before adding x?
+[pause 4]
+A: So x can't pair with itself.
+N: Does b equals a copy a list?
+[pause 3]
+A: No. Both names point at the same list.
+N: What does dot sort return?
+[pause 3]
+A: None. It sorts in place.
+[pause 1]
+N: End of review. 59 questions. Missed any? Find them in the review sheets, then start section 3.

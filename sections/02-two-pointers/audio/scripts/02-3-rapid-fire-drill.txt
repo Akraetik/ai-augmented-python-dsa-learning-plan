@@ -1,0 +1,93 @@
+# 02-3 Two Pointers Rapid Fire Drill
+
+N: Section two, track three. Rapid fire. Say it before you hear it. Repeat this track until it's easy.
+[pause 2]
+N: Two pointers turns which Big O into which?
+[pause 3]
+A: O of n squared into O of n.
+N: Sorted list, find a pair. Shape?
+[pause 3]
+A: Opposite ends.
+N: Reads the same both ways. Shape?
+[pause 3]
+A: Opposite ends.
+N: In order across two strings. Shape?
+[pause 3]
+A: Same direction. One pointer each.
+N: Maximize something capped by the shorter side. Shape?
+[pause 3]
+A: Shrink the weaker side.
+N: Three numbers that sum to zero. Shape?
+[pause 3]
+A: Sort, fix one, two pointers on the rest.
+N: Sum too small. Which pointer?
+[pause 3]
+A: Left moves right.
+N: Sum too big. Which pointer?
+[pause 3]
+A: Right moves left.
+N: Why drop the left number when the sum is too small?
+[pause 4]
+A: Even the biggest partner isn't enough.
+N: Two Sum two returns what kind of index?
+[pause 3]
+A: One-indexed.
+N: Palindrome skip loops need what guard?
+[pause 3]
+A: Left less than right.
+N: Squares of a sorted array. Biggest squares are where?
+[pause 3]
+A: At the ends.
+N: And you fill the answer from?
+[pause 3]
+A: The back.
+N: Is Subsequence. Fast pointer is in which string?
+[pause 3]
+A: t, the longer one.
+N: Slow pointer moves when?
+[pause 3]
+A: On a match.
+N: Container area?
+[pause 3]
+A: Width times the shorter line.
+N: Container. Which line moves?
+[pause 3]
+A: The shorter one.
+N: Container. Why?
+[pause 4]
+A: Narrower and no taller can't win.
+N: Three Sum. First step?
+[pause 3]
+A: Sort.
+N: Three Sum Big O?
+[pause 3]
+A: n squared.
+N: Three Sum. Skip a fixed value when it equals which neighbor?
+[pause 3]
+A: The one before it.
+N: Three Sum. After a match, what then?
+[pause 4]
+A: Move both pointers past repeats.
+N: Three Sum. Fixed number is positive?
+[pause 3]
+A: Break.
+N: Three Sum Closest. Need to skip duplicates?
+[pause 3]
+A: No.
+N: Two pointer water. Which side do you process?
+[pause 3]
+A: The side with the smaller max.
+N: Two pointer water. Space?
+[pause 3]
+A: O of one.
+N: Less than, or less than or equal, for pairs?
+[pause 3]
+A: Less than. A pair needs two different items.
+N: New bug. Too small, but you move right. Name it.
+[pause 3]
+A: Moving the wrong pointer.
+N: Unsorted list, find a pair that sums to target. Two pointers?
+[pause 4]
+A: No. Use a dictionary. Or sort first, if positions don't matter.
+[pause 1]
+N: End of drill.

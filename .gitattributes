@@ -1,0 +1,9 @@
+# Binary study files: never diff or change line endings
+*.mp3 binary
+*.apkg binary
+*.png binary
+# Text files: normalize line endings so Windows and Mac/Linux agree
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.html text eol=lf

@@ -1,0 +1,31 @@
+# 02-1 Two Pointers Primer
+
+N: Section two, track one. Two pointers. The primer.
+N: Listen before you open lesson two point one. You're loading the words, not memorizing.
+[pause 1]
+N: Two pointers means two index variables walking through the data at the same time. Instead of a loop inside a loop, you get one pass. O of n squared becomes O of n.
+N: You've already used it. In section zero you reversed a list with one pointer at each end. In section one, read and write pointers removed items in place. This section makes the idea deliberate.
+[pause 1]
+N: There are four shapes.
+N: Shape one. Opposite ends. One pointer starts at the left, one at the right. They walk toward each other.
+N: Use it for symmetry. A palindrome reads the same both ways, so you compare the outside pair, then step inward.
+N: And use it for pairs in a sorted list. Two Sum two. The list is sorted. You want two numbers that add to a target. Start with the smallest and the biggest. If the sum is too small, move the left pointer, to bring in a bigger number. If it's too big, move the right pointer, to bring in a smaller one.
+N: Here's the sentence that makes it work. When the sum is too small, the right pointer holds the biggest partner still available. If even that isn't enough, the left number has no partner at all. You can throw it away.
+N: Every two pointer problem has a sentence like that. Why is it safe to move this pointer? Learn to say it. Interviewers ask it constantly.
+[pause 1]
+N: Shape two. Same direction. Both pointers move forward, at different speeds.
+N: Is Subsequence asks: can you find the letters of one string inside another, in order, with gaps allowed? One pointer per string. The pointer in the long string moves every step. The pointer in the short string moves only when the letters match.
+[pause 1]
+N: Shape three. Shrink the weaker side.
+N: Container With Most Water. Vertical lines. Pick two. The water they hold is the width between them, times the shorter line.
+N: Start at both ends, the widest container. Then move the shorter line inward. Why? Any container that keeps the shorter line is narrower and no taller. It can't win. So the shorter line is finished.
+[pause 1]
+N: Shape four. Sort first, then two pointers.
+N: Three Sum asks for every triple that adds to zero, with no repeats. Sort the list. Fix the first number. Now you need two numbers that add to minus that number. That's Two Sum two, which you just learned. Run it on the rest of the list.
+N: Sorting also lines up duplicates side by side. So skipping repeats becomes easy. You'll skip in three places.
+[pause 1]
+N: And one return visit. Trapping Rain Water, from section one. Last time you used two extra lists. This time, two pointers and a few variables. Same answer. Constant space.
+[pause 1]
+N: One new bug to watch for. Moving the wrong pointer. If the sum is too small and you move the right pointer, the sum gets smaller still. The bug hunt lab has it. If it catches you, it becomes mistake M eight.
+[pause 1]
+N: That's the map. Four shapes. One question that matters most: why is it safe to move that pointer? Open lesson two point one at your desk.

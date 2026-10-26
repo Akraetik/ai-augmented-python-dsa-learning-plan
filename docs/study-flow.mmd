@@ -1,0 +1,31 @@
+flowchart TD
+    D["<b>EVERY DAY, alongside everything below</b><br/>Anki reviews on 5–20 min breaks · audio drill while driving"]:::daily
+    D ~~~ A
+    A([Start of the week]) --> R["<b>0. Cumulative review</b><br/>review/ folder · 30–45 min<br/>all past sections, tapered"]
+    R --> I["<b>1. Import the section's Anki deck</b>"]
+    I --> P["<b>2. Audio primer</b><br/>drive / chores"]
+    P --> L["<b>3. Lesson</b><br/>IDE open · type every example"]
+    L --> T["<b>4. Trace lab</b><br/>predict output · answers checked"]
+    T --> LAB["<b>5. Labs</b><br/>Core → Build → Stretch"]
+    LAB --> S{Stuck 15–40 min?}
+    S -- yes --> H["hints.md<br/>one hint at a time"] --> LAB
+    S -- no --> SOL["Solved → read the solution<br/>log repeat mistakes in MISTAKES.md"]
+    SOL --> MORE{More lessons<br/>in this section?}
+    MORE -- yes --> P2["next audio track"] --> L
+    MORE -- no --> QA["<b>6. Q&A session with Claude</b><br/>explain out loud"]
+    QA --> Q["<b>7. Checkpoint quiz</b><br/>quiz.html"]
+    Q --> QS{85% or more?}
+    QS -- no --> FIX["<b>Repair</b><br/>follow the study list for each miss<br/>redo those labs · retake in 2 days"] --> Q
+    QS -- yes --> G["<b>8. Mastery gate</b><br/>2 days later · blank file · timed"]
+    G --> GS{Passed?}
+    GS -- no --> FIX
+    GS -- yes --> N([Mark PROGRESS.md · next section])
+    N -.-> A
+
+    classDef step fill:#eef3f8,stroke:#2f5d8a,color:#1d1d1b
+    classDef gate fill:#fbf1d6,stroke:#b8902b,color:#1d1d1b
+    classDef daily fill:#e8f3ec,stroke:#2e7d4f,color:#1d1d1b
+    class R,I,P,L,T,LAB,QA,Q,G step
+    class S,MORE,QS,GS gate
+    class H,SOL,P2,FIX step2
+    classDef step2 fill:#f4f2ec,stroke:#8a877e,color:#1d1d1b

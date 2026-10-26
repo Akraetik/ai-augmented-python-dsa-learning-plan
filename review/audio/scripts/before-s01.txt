@@ -1,0 +1,98 @@
+# Review before Section 01
+N: Cumulative review. You're about to start section 1. This track mixes questions from every section you've finished. The newest gets the most time. Older ones come back less often, but they always come back.
+N: Say each answer out loud before you hear it.
+[pause 2]
+N: From section 0, foundations. 30 questions.
+[pause 1]
+N: What does sorting cost?
+[pause 3]
+A: O of n log n.
+N: Two Sum. Why check the dictionary before adding x?
+[pause 4]
+A: So x can't pair with itself.
+N: The Big O ladder, fastest to slowest.
+[pause 5]
+A: One. Log n. n. n log n. n squared. Two to the n.
+N: Cost of asking for a list's length?
+[pause 3]
+A: O of one.
+N: A loop that halves n every pass.
+[pause 3]
+A: O of log n.
+N: Trigger: removing from the front, over and over.
+[pause 3]
+A: Deque.
+N: Trigger: have I seen this before?
+[pause 3]
+A: Set.
+N: Trigger: grouping things.
+[pause 3]
+A: Default dict of list.
+N: Fast way to build a string in a loop?
+[pause 4]
+A: Collect pieces in a list. Join once.
+N: Cost of checking if x is in a set?
+[pause 3]
+A: O of one.
+N: A loop inside a loop. Add or multiply?
+[pause 3]
+A: Multiply.
+N: Mistake M five?
+[pause 3]
+A: Off by one at the ends.
+N: Your function prints the right answer, but fails every test. Why?
+[pause 4]
+A: It printed instead of returning. The grader got None.
+N: Running sum. How do you get each answer?
+[pause 4]
+A: The previous answer, plus the current number.
+N: Negative seven, integer divided by two.
+[pause 4]
+A: Negative four. It rounds down.
+N: Loop that gives you index and value together?
+[pause 3]
+A: Enumerate.
+N: Empty curly braces make what?
+[pause 3]
+A: An empty dictionary. Not a set.
+N: Trigger: frequency, or anagram.
+[pause 3]
+A: Counter.
+N: What two things does every coding test grade?
+[pause 4]
+A: Correctness, and performance.
+N: Does b equals a copy a list?
+[pause 3]
+A: No. Both names point at the same list.
+N: Cost of pop zero on a list?
+[pause 3]
+A: O of n. Use a deque.
+N: Last step of the routine?
+[pause 3]
+A: Test it by tracing, line by line.
+N: Can you change a string in place?
+[pause 3]
+A: No. Strings are immutable.
+N: Mistake M six?
+[pause 3]
+A: Not reading the return type.
+N: Index versus value. Which is the position?
+[pause 3]
+A: The index.
+N: Name four edge cases for a list problem.
+[pause 5]
+A: Empty. One item. All the same. Negatives. And the maximum size.
+N: n is up to one thousand. Is a nested loop OK?
+[pause 3]
+A: Yes. O of n squared is fine.
+N: What does dot sort return?
+[pause 3]
+A: None. It sorts in place.
+N: Does a slice include its stop index?
+[pause 3]
+A: No.
+N: What does space complexity measure?
+[pause 4]
+A: Extra memory as the input grows. Not counting the input.
+[pause 1]
+N: End of review. 30 questions. Missed any? Find them in the review sheets, then start section 1.
