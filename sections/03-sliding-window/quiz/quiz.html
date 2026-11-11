@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Section 03 · Sliding Window Checkpoint</title>
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--ink:#1d1d1b;--mut:#6b6a65;--line:#e3e1da;--acc:#2f5d8a;--ok:#2e7d4f;--bad:#b3412f;--code:#f0eee8}
+@media (prefers-color-scheme:dark){:root{--bg:#141412;--card:#1d1d1b;--ink:#ecebe6;--mut:#9c9a93;--line:#33322e;--acc:#7fb0e0;--ok:#6cc58f;--bad:#ec8a78;--code:#262522}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font-size:1.5rem;margin:0 0 4px}.sub{color:var(--mut);margin:0 0 24px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:0 0 14px}
+.qh{display:flex;justify-content:space-between;gap:8px;color:var(--mut);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+.qt{font-weight:600;margin:6px 0 10px}
+pre{background:var(--code);border-radius:6px;padding:10px 12px;overflow-x:auto;font:14px/1.45 ui-monospace,Consolas,monospace;margin:0 0 10px}
+label{display:block;padding:8px 10px;border:1px solid var(--line);border-radius:6px;margin:6px 0;cursor:pointer}
+label:hover{border-color:var(--acc)}input{margin-right:8px}
+label.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
+label.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,transparent)}
+.why{display:none;margin-top:10px;padding:10px;border-left:3px solid var(--acc);background:var(--code);border-radius:4px;font-size:.95rem}
+.done .why{display:block}
+.study{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:.9rem;color:var(--mut)}
+.study b{color:var(--ink)}
+ol.miss li{margin:4px 0}
+button{font:inherit;padding:10px 18px;border-radius:8px;border:1px solid var(--acc);background:var(--acc);color:var(--bg);cursor:pointer;margin:4px 8px 4px 0}
+button.ghost{background:transparent;color:var(--acc)}
+#result{display:none;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:0 0 20px}
+.bar{height:10px;background:var(--line);border-radius:5px;overflow:hidden;margin:4px 0 10px}.bar i{display:block;height:100%}
+.row{display:flex;justify-content:space-between;font-size:.95rem}
+.big{font-size:2rem;font-weight:700}
+code{font-family:ui-monospace,Consolas,monospace;background:var(--code);padding:1px 4px;border-radius:3px}
+</style></head><body><main>
+<h1>Section 03 · Sliding Window Checkpoint</h1><p class="sub">22 questions · pass mark 85% · no notes, no IDE, no AI</p>
+<div id="result"></div>
+<form id="f"></form>
+<button id="submit">Score it</button><button class="ghost" id="reset">Start over</button>
+</main>
+<script>
+const QUIZ = {"title": "Section 03 \u00b7 Sliding Window Checkpoint", "pass_mark": 0.85, "pass_msg": "This is one of four gate checks. Now do the cold solves in the section README.", "fail_msg": "Follow the study list for each miss, redo those labs, and retake in two days.", "topics": {"fixed": "Fixed-size windows (3.1)", "longest": "Longest valid window (3.2)", "shortest": "Shortest valid window (3.3)", "words": "Word windows (3.4)", "pick": "Picking the pattern"}, "review": {"fixed": "Lesson 3.1. Redo labs 01 and 02.", "longest": "Lesson 3.2. Redo labs 03, 04, 05 and the Bug Hunt (09).", "shortest": "Lesson 3.3. Redo lab 06, then trace lab 07 by hand.", "words": "Lesson 3.4. Re-draw the three offsets, then redo lab 08.", "pick": "Read review/TRIGGERS.md. Cover the right columns and name each pattern."}, "questions": [{"id": "w01", "study": "3.1 Fixed-Size Windows \u203a The idea", "topic": "fixed", "q": "A fixed window of size k slides one step. How many items does the update touch?", "options": ["k", "2: one enters, one leaves", "1", "n"], "answer": 1, "why": "Everything in the middle stays. Add the new right item, remove the old left item."}, {"id": "w02", "study": "3.1 Fixed-Size Windows \u203a Worked example", "topic": "fixed", "q": "When `nums[right]` enters a window of size k, which item leaves?", "options": ["nums[right - 1]", "nums[right - k]", "nums[right - k + 1]", "nums[k]"], "answer": 1, "why": "The window was right\u2212k .. right\u22121. After the slide it's right\u2212k+1 .. right, so right\u2212k leaves."}, {"id": "w03", "study": "3.1 Fixed-Size Windows \u203a The idea (the slow way)", "topic": "fixed", "q": "Big-O of summing every window of size k from scratch?", "options": ["O(n)", "O(n \u00b7 k)", "O(k)", "O(n log n)"], "answer": 1, "why": "About n windows, each summed in k steps."}, {"id": "w04", "study": "3.1 Fixed-Size Windows \u203a Fixed windows of counts", "topic": "fixed", "q": "Permutation in String: what must match between the window and s1?", "options": ["The first letter", "The sorted order", "The letter counts", "The length only"], "answer": 2, "why": "A rearrangement has exactly the same letter counts."}, {"id": "w05", "study": "3.2 Longest Valid Window \u203a The template", "topic": "longest", "q": "A window runs from left = 3 to right = 7. Its length?", "options": ["4", "5", "7", "10"], "answer": 1, "why": "right \u2212 left + 1 = 5. Indexes 3, 4, 5, 6, 7. (M5)"}, {"id": "w06", "study": "3.2 Longest Valid Window \u203a The template", "topic": "longest", "q": "Longest-valid template: where do you record the answer?", "options": ["Inside the while, before shrinking", "After the while, once the window is valid", "Before adding s[right]", "Only at the end"], "answer": 1, "why": "The while loop fixes a broken window. Record once it's valid again."}, {"id": "w07", "study": "3.2 Longest Valid Window \u203a The template (while, not if)", "topic": "longest", "q": "Why shrink with `while` and not `if`?", "options": ["It's faster", "One step left may not fix the window", "if is not allowed in loops", "No reason"], "answer": 1, "why": "In \"abcdb\", the repeat 'b' is 3 steps in. One step isn't enough. (Bug Hunt 3.09)"}, {"id": "w08", "study": "3.2 Longest Valid Window \u203a Why it's O(n)", "topic": "longest", "q": "The variable window has a while inside a for. Why is it still O(n)?", "options": ["The while rarely runs", "left only moves forward, so it moves at most n times in total", "Python optimizes it", "It isn't O(n)"], "answer": 1, "why": "Amortized: right moves n times, left moves at most n times. At most 2n steps."}, {"id": "w09", "study": "3.2 Longest Valid Window \u203a Longest Substring", "topic": "longest", "q": "Longest substring without repeats in `\"abba\"`?", "options": ["1", "2", "3", "4"], "answer": 1, "why": "\"ab\" or \"ba\". The jump version needs max() so left never moves back."}, {"id": "w10", "study": "3.2 Longest Valid Window \u203a Max Consecutive Ones III", "topic": "longest", "q": "Max Consecutive Ones III restated as a window rule:", "options": ["Window of all ones", "Longest window with at most k zeros", "Shortest window with k ones", "Window of size k"], "answer": 1, "why": "You never flip anything. You just allow up to k zeros inside."}, {"id": "w11", "study": "3.2 Longest Valid Window \u203a Longest Repeating Character Replacement", "topic": "longest", "q": "Window \"AABAB\", k = 1. Is it valid?", "options": ["Yes", "No"], "answer": 1, "why": "Length 5 \u2212 most common count 3 = 2 changes needed. 2 > 1."}, {"id": "w12", "study": "3.3 Shortest Valid Window \u203a The template", "topic": "shortest", "q": "Shortest-valid template: when does the while loop run?", "options": ["While the window is broken", "While the window is valid", "Once per step", "Never"], "answer": 1, "why": "While valid: record, then shrink to see if a shorter window still works."}, {"id": "w13", "study": "3.3 Shortest Valid Window \u203a The template", "topic": "shortest", "q": "Shortest-valid: what should best start at?", "options": ["0", "1", "infinity", "len(nums)"], "answer": 2, "why": "Any real answer must beat it with min(). 0 would win every time."}, {"id": "w14", "study": "3.3 Shortest Valid Window \u203a Minimum Size Subarray Sum", "topic": "shortest", "q": "Minimum Size Subarray Sum: no window reaches the target. Return?", "options": ["infinity", "-1", "0", "len(nums)"], "answer": 2, "why": "The problem says 0. Check the no-answer case. (M6)"}, {"id": "w15", "study": "3.3 Shortest Valid Window \u203a When sliding windows break", "topic": "shortest", "q": "Why does Minimum Size Subarray Sum need all positive numbers?", "options": ["To avoid overflow", "So growing raises the sum and shrinking lowers it", "So the list is sorted", "It doesn't"], "answer": 1, "why": "With negatives, shrinking can raise the sum. The window can't tell which way to move."}, {"id": "w16", "study": "3.3 Shortest Valid Window \u203a Minimum Window Substring", "topic": "shortest", "q": "Minimum Window Substring: when does `have` go up by one?", "options": ["Every time a letter of t enters", "When a letter's window count reaches exactly what t needs", "When the window grows", "When left moves"], "answer": 1, "why": "Only the moment a letter becomes satisfied. Extra copies don't count again."}, {"id": "w17", "study": "3.3 Shortest Valid Window \u203a Minimum Window Substring", "topic": "shortest", "q": "Minimum Window Substring returns the substring. What must you record?", "options": ["Only the length", "The start index and the length", "Only the start", "The whole Counter"], "answer": 1, "why": "You need both to slice the answer at the end."}, {"id": "w18", "study": "3.4 Word Windows \u203a The catch: where do the pieces start?", "topic": "words", "q": "Concatenation of All Words with word length 4. How many separate window runs?", "options": ["1", "4", "len(words)", "len(s)"], "answer": 1, "why": "One per offset 0, 1, 2, 3. Together they cover every start."}, {"id": "w19", "study": "3.4 Word Windows \u203a Inside one run", "topic": "words", "q": "A piece that isn't any of the words enters the window. What now?", "options": ["Skip it, keep the window", "Clear the window and restart after it", "Shrink one step", "Return []"], "answer": 1, "why": "No valid window can contain that piece."}, {"id": "w20", "study": "Review: review/TRIGGERS.md", "topic": "pick", "q": "\"Longest subarray with sum \u2264 k. Numbers can be negative.\" Sliding window?", "options": ["Yes, longest-valid template", "No: negatives break it", "Yes, fixed window", "Yes, shortest-valid"], "answer": 1, "why": "Shrinking may not lower the sum. Use prefix sums (Section 05) or other tools."}, {"id": "w21", "study": "Review: review/TRIGGERS.md", "topic": "pick", "q": "\"For each block of 7 days, the max temperature.\" Best pattern?", "options": ["Fixed window of size 7", "Two pointers from the ends", "Variable window", "Sort first"], "answer": 0, "why": "Every window of size k. (A deque makes the max O(1) per slide; that's a later trick.)"}, {"id": "w22", "study": "Review: review/TRIGGERS.md", "topic": "pick", "q": "\"Sorted list. Find a pair that sums to target.\" Sliding window or two pointers?", "options": ["Sliding window", "Two pointers from the ends (Section 02)", "Fixed window of 2", "Counting"], "answer": 1, "why": "A pair from anywhere, not a contiguous run. Windows are for runs of items next to each other."}]};
+const f = document.getElementById('f');
+function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function inline(s){return esc(s).replace(/`([^`]+)`/g,'<code>$1</code>')}
+QUIZ.questions.forEach((q,i)=>{
+  const d=document.createElement('div');d.className='q';d.id='q'+i;
+  let h=`<div class="qh"><span>Q${i+1}</span><span>${esc(QUIZ.topics[q.topic]||q.topic)}</span></div><div class="qt">${inline(q.q)}</div>`;
+  if(q.code) h+=`<pre>${esc(q.code)}</pre>`;
+  q.options.forEach((o,j)=>{h+=`<label><input type="radio" name="q${i}" value="${j}">${inline(o)}</label>`});
+  h+=`<div class="why">${inline(q.why)}${q.study?`<div class="study">If you missed it, study: <b>${inline(q.study)}</b></div>`:''}</div>`;d.innerHTML=h;f.appendChild(d);
+});
+document.getElementById('submit').onclick=()=>{
+  let right=0;const per={};const missed=[];
+  QUIZ.questions.forEach((q,i)=>{
+    const d=document.getElementById('q'+i);d.classList.add('done');
+    const pick=d.querySelector('input:checked');const labels=d.querySelectorAll('label');
+    labels.forEach(l=>l.classList.remove('right','wrong'));
+    labels[q.answer].classList.add('right');
+    per[q.topic]=per[q.topic]||[0,0];per[q.topic][1]++;
+    if(pick&&+pick.value===q.answer){right++;per[q.topic][0]++}
+    else{if(pick)labels[+pick.value].classList.add('wrong');missed.push(i+1)}
+  });
+  const n=QUIZ.questions.length,pct=Math.round(100*right/n),pass=right/n>=QUIZ.pass_mark;
+  let h=`<div class="big">${right}/${n} · ${pct}%</div><p>${pass?'<b style="color:var(--ok)">Gate passed.</b> '+QUIZ.pass_msg:'<b style="color:var(--bad)">Not yet.</b> '+QUIZ.fail_msg}</p><h3>By topic</h3>`;
+  const weak=[];
+  Object.entries(per).forEach(([t,[a,b]])=>{const p=a/b;if(p<0.8)weak.push(t);
+    h+=`<div class="row"><span>${esc(QUIZ.topics[t]||t)}</span><span>${a}/${b}</span></div><div class="bar"><i style="width:${100*p}%;background:${p>=0.8?'var(--ok)':'var(--bad)'}"></i></div>`});
+  if(weak.length){h+='<h3>Review these</h3><ul>'+weak.map(t=>`<li><b>${esc(QUIZ.topics[t]||t)}</b>: ${inline(QUIZ.review[t]||'')}</li>`).join('')+'</ul>'}
+  if(missed.length){h+='<h3>Study list for your misses</h3><ol class="miss">'+missed.map(n=>{const q=QUIZ.questions[n-1];return `<li>Q${n}: ${inline(q.study||QUIZ.review[q.topic]||'')}</li>`}).join('')+'</ol>'}
+  h+='<button id="copy">Copy results for Claude</button>';
+  const r=document.getElementById('result');r.innerHTML=h;r.style.display='block';window.scrollTo(0,0);
+  const summary=`${QUIZ.title}: ${right}/${n} (${pct}%). Weak topics: ${weak.map(t=>QUIZ.topics[t]).join(', ')||'none'}. Missed: ${missed.map(n=>'Q'+n+' ('+(QUIZ.questions[n-1].study||QUIZ.topics[QUIZ.questions[n-1].topic])+')').join('; ')||'none'}.`;
+  document.getElementById('copy').onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(summary);document.getElementById('copy').textContent='Copied'};
+  try{const k='quiz:'+QUIZ.title;const hist=JSON.parse(localStorage.getItem(k)||'[]');hist.push({when:new Date().toISOString(),right,n});localStorage.setItem(k,JSON.stringify(hist.slice(-20)))}catch(e){}
+};
+document.getElementById('reset').onclick=()=>{f.reset();document.querySelectorAll('.q').forEach(d=>{d.classList.remove('done');d.querySelectorAll('label').forEach(l=>l.classList.remove('right','wrong'))});document.getElementById('result').style.display='none';window.scrollTo(0,0)};
+</script></body></html>

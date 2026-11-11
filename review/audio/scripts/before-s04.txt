@@ -1,0 +1,218 @@
+# Review before Section 04
+N: Cumulative review. You're about to start section 4. This track mixes questions from every section you've finished. The newest gets the most time. Older ones come back less often, but they always come back.
+N: Say each answer out loud before you hear it.
+[pause 2]
+N: From section 3, sliding window. 29 questions.
+[pause 1]
+N: Longest valid. Shrink when?
+[pause 3]
+A: While broken.
+N: Longest valid. Best starts at?
+[pause 3]
+A: Zero.
+N: When nums at right enters, which index leaves?
+[pause 3]
+A: Right minus k.
+N: Minimum window substring. Have goes up when?
+[pause 4]
+A: A letter's count reaches what t needs.
+N: Shortest valid. Record where?
+[pause 3]
+A: Inside the while, before shrinking.
+N: Shrink with if or while?
+[pause 3]
+A: While.
+N: Fixed window Big O?
+[pause 3]
+A: O of n.
+N: Fixed window slide. What changes?
+[pause 3]
+A: One enters, one leaves.
+N: Minimum size subarray sum. Nothing works. Return?
+[pause 3]
+A: Zero.
+N: What is a window?
+[pause 3]
+A: A run of items next to each other.
+N: Minimum window substring. Record what?
+[pause 3]
+A: Start and length.
+N: Longest substring without repeats. Broken when?
+[pause 3]
+A: A letter appears twice.
+N: Pair from anywhere in a sorted list. Window or two pointers?
+[pause 3]
+A: Two pointers from the ends.
+N: Every window of size k. Template?
+[pause 3]
+A: Fixed window.
+N: A word piece that isn't in the list?
+[pause 3]
+A: Clear the window and restart after it.
+N: Longest valid. Record where?
+[pause 3]
+A: After the while.
+N: Shortest valid. Best starts at?
+[pause 3]
+A: Infinity.
+N: Rearrangement of a string. Compare what?
+[pause 3]
+A: Letter counts.
+N: Sliding window with negative numbers in a sum?
+[pause 3]
+A: No. Use prefix sums.
+N: Character replacement. Changes needed?
+[pause 4]
+A: Length minus the most common count.
+N: Concatenation of all words. Runs per word length L?
+[pause 3]
+A: L. One per offset.
+N: Shortest run that meets a goal. Template?
+[pause 3]
+A: Shortest valid window.
+N: Jump version. Why max of left?
+[pause 4]
+A: So left never moves backward.
+N: Flip up to k zeros. Window rule?
+[pause 3]
+A: At most k zeros inside.
+N: Why is a while inside a for still O of n?
+[pause 4]
+A: Left only moves forward. At most n moves.
+N: New bug in this section?
+[pause 3]
+A: Shrinking with if instead of while.
+N: Shortest valid. While loop runs when?
+[pause 3]
+A: While valid.
+N: Window length?
+[pause 3]
+A: Right minus left plus one.
+N: Longest run that follows a rule. Template?
+[pause 3]
+A: Longest valid window.
+[pause 1]
+N: From section 2, two pointers. 18 questions.
+[pause 1]
+N: Two Sum two returns what kind of index?
+[pause 3]
+A: One-indexed.
+N: Three Sum. Skip a fixed value when it equals which neighbor?
+[pause 3]
+A: The one before it.
+N: Three Sum Closest. Need to skip duplicates?
+[pause 3]
+A: No.
+N: Squares of a sorted array. Biggest squares are where?
+[pause 3]
+A: At the ends.
+N: Reads the same both ways. Shape?
+[pause 3]
+A: Opposite ends.
+N: Three Sum Big O?
+[pause 3]
+A: n squared.
+N: Palindrome skip loops need what guard?
+[pause 3]
+A: Left less than right.
+N: Three Sum. After a match, what then?
+[pause 4]
+A: Move both pointers past repeats.
+N: And you fill the answer from?
+[pause 3]
+A: The back.
+N: Container. Which line moves?
+[pause 3]
+A: The shorter one.
+N: Sum too big. Which pointer?
+[pause 3]
+A: Right moves left.
+N: Three numbers that sum to zero. Shape?
+[pause 3]
+A: Sort, fix one, two pointers on the rest.
+N: Three Sum. First step?
+[pause 3]
+A: Sort.
+N: Container area?
+[pause 3]
+A: Width times the shorter line.
+N: Maximize something capped by the shorter side. Shape?
+[pause 3]
+A: Shrink the weaker side.
+N: Sorted list, find a pair. Shape?
+[pause 3]
+A: Opposite ends.
+N: Why drop the left number when the sum is too small?
+[pause 4]
+A: Even the biggest partner isn't enough.
+N: Slow pointer moves when?
+[pause 3]
+A: On a match.
+[pause 1]
+N: From section 1, array string. 12 questions.
+[pause 1]
+N: In place, return k, first k elements. Pattern?
+[pause 3]
+A: Read and write pointers.
+N: Jump Game tracks?
+[pause 3]
+A: Farthest reach.
+N: Substring search. Last start?
+[pause 3]
+A: n minus m.
+N: Jump Game. Stuck when?
+[pause 3]
+A: The index is past reach.
+N: Last word without split. Walk which way?
+[pause 3]
+A: Backward.
+N: Rotate right. Where does index i go?
+[pause 3]
+A: i plus k, mod n.
+N: Product prefix. Record first, or include first?
+[pause 3]
+A: Record first.
+N: Empty product starts at?
+[pause 3]
+A: One.
+N: Roman building. Method?
+[pause 3]
+A: Greedy, biggest piece first, with the six pairs.
+N: Mistake M seven?
+[pause 3]
+A: Returning true too early.
+N: Text Justification. Seven spaces, three gaps?
+[pause 3]
+A: Three, two, two.
+N: Water above one bar?
+[pause 4]
+A: Smaller of max left and max right, minus the bar.
+[pause 1]
+N: From section 0, foundations. 8 questions.
+[pause 1]
+N: n is up to one thousand. Is a nested loop OK?
+[pause 3]
+A: Yes. O of n squared is fine.
+N: Cost of pop zero on a list?
+[pause 3]
+A: O of n. Use a deque.
+N: Loop that gives you index and value together?
+[pause 3]
+A: Enumerate.
+N: Cost of asking for a list's length?
+[pause 3]
+A: O of one.
+N: The signature says it returns None. What should you do?
+[pause 4]
+A: Change the input in place. Return nothing.
+N: Loops one after another. Add or multiply?
+[pause 3]
+A: Add.
+N: Mistake M six?
+[pause 3]
+A: Not reading the return type.
+N: Trigger: frequency, or anagram.
+[pause 3]
+A: Counter.
+[pause 1]
+N: End of review. 67 questions. Missed any? Find them in the review sheets, then start section 4.
