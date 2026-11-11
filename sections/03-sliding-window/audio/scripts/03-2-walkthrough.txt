@@ -1,0 +1,82 @@
+# 03-2 Sliding Window Walkthrough
+
+N: Section three, track two. The walkthrough. Answer out loud before the answer voice.
+[pause 1]
+N: Fixed window. Numbers two, one, five, one, three, two. Window size three. The first window sums to eight. Slide one step. What enters, and what leaves?
+[pause 4]
+A: One enters. Two leaves. The sum becomes seven.
+N: Slide again. What's the new sum?
+[pause 4]
+A: Three enters, one leaves. Seven plus three minus one is nine.
+N: In code, when nums at right enters, which index leaves?
+[pause 4]
+A: Right minus k.
+[pause 1]
+N: Permutation in String. Does s two contain a rearrangement of s one? What do you compare?
+[pause 4]
+A: Letter counts. Slide a window the length of s one, and compare its counts to s one's counts.
+[pause 1]
+N: Now the longest valid template. Say the three steps.
+[pause 5]
+A: Grow by adding the right item. Shrink from the left while the window is broken. Record the length after the while loop.
+N: What's the length of a window from left to right?
+[pause 3]
+A: Right minus left plus one.
+[pause 1]
+N: Longest Substring Without Repeating Characters. The string is p w w k e w. The second w arrives. What happens?
+[pause 6]
+A: The window p w w is broken. Shrink. Drop p. Still broken. Drop the first w. Now the window is just w. Valid.
+N: Why does that need a while, not an if?
+[pause 4]
+A: One step wasn't enough. It took two drops to fix the window.
+N: What's the final answer for p w w k e w?
+[pause 3]
+A: Three. W k e.
+[pause 1]
+N: Max Consecutive Ones three. You may flip k zeros. Restate it as a window rule.
+[pause 4]
+A: The longest window with at most k zeros in it.
+[pause 1]
+N: Longest Repeating Character Replacement. How many changes does a window need?
+[pause 5]
+A: The window length, minus the count of its most common letter.
+N: When is it broken?
+[pause 3]
+A: When that number is more than k.
+[pause 1]
+N: Now the shortest valid template. Say the steps.
+[pause 5]
+A: Grow by adding the right item. While the window is valid, record its length, then shrink from the left.
+N: Name the three differences from the longest template.
+[pause 7]
+A: The while runs when valid, not when broken. You record inside the while, not after. And best starts at infinity, not zero.
+[pause 1]
+N: Minimum Size Subarray Sum. Target seven. Numbers two, three, one, two, four, three. What's the answer?
+[pause 5]
+A: Two. The window four, three.
+N: Nothing ever reaches the target. What do you return?
+[pause 3]
+A: Zero.
+N: Why must the numbers be positive?
+[pause 5]
+A: So growing raises the sum and shrinking lowers it. With negatives, shrinking can raise the sum, and the window can't tell which way to move.
+[pause 1]
+N: Minimum Window Substring. When does have go up?
+[pause 5]
+A: When a letter's count in the window reaches exactly what t needs.
+N: When does it go down?
+[pause 4]
+A: When a letter leaves and its count drops below what t needs.
+N: What do you record?
+[pause 3]
+A: The start and the length. You return the substring.
+[pause 1]
+N: Concatenation of All Words. Every word is three letters. How many window runs do you do?
+[pause 4]
+A: Three. One for each starting offset, zero, one, and two.
+[pause 1]
+N: Last one. A new problem. Longest subarray with sum at most k, and the numbers can be negative. Sliding window?
+[pause 5]
+A: No. Negatives break it. Think prefix sums.
+[pause 1]
+N: That's the walkthrough. Next track is the rapid fire drill.
