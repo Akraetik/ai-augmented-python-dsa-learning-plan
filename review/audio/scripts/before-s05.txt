@@ -1,0 +1,242 @@
+# Review before Section 05
+N: Cumulative review. You're about to start section 5. This track mixes questions from every section you've finished. The newest gets the most time. Older ones come back less often, but they always come back.
+N: Say each answer out loud before you hear it.
+[pause 2]
+N: From section 4, matrix. 28 questions.
+[pause 1]
+N: Turning walker. Turn right how?
+[pause 3]
+A: d plus one, mod four.
+N: Main diagonal?
+[pause 3]
+A: Row equals column.
+N: Game of Life. Two means?
+[pause 3]
+A: Live to dead.
+N: No repeats in each row, column, and box. Tool?
+[pause 3]
+A: One set per group.
+N: Which do you zero last?
+[pause 3]
+A: Row zero and column zero.
+N: Set Matrix Zeroes. First rule?
+[pause 3]
+A: Record first, write second.
+N: Spiral. How many walls?
+[pause 3]
+A: Four.
+N: Row first, or column first?
+[pause 3]
+A: Row first.
+N: In-place transpose swaps which cells?
+[pause 3]
+A: Column bigger than row.
+N: Transpose. Row r, column c goes where?
+[pause 3]
+A: Row c, column r.
+N: Number of rows?
+[pause 3]
+A: Length of the grid.
+N: Neighbor check comes before or after the read?
+[pause 3]
+A: Before.
+N: Big O of visiting every cell?
+[pause 3]
+A: O of m times n.
+N: O of one flags live where?
+[pause 3]
+A: Row zero and column zero.
+N: Spiral. Two test cases to run first?
+[pause 3]
+A: One row, and one column.
+N: Rotate counterclockwise?
+[pause 3]
+A: Transpose, then reverse the row order.
+N: How many neighbors with diagonals?
+[pause 3]
+A: Eight.
+N: Dead with exactly three?
+[pause 3]
+A: Becomes live.
+N: Spiral. Which steps re-check?
+[pause 3]
+A: Bottom row and left column.
+N: Sudoku box formula?
+[pause 4]
+A: Row over three, times three, plus column over three.
+N: Live with two or three neighbors?
+[pause 3]
+A: Lives.
+N: New bug in this section?
+[pause 3]
+A: A missing re-check after the walls move.
+N: Anti-diagonal?
+[pause 3]
+A: Row plus column equals n minus one.
+N: Odd n, both diagonals. Watch for?
+[pause 3]
+A: The center counts once.
+N: Number of columns?
+[pause 3]
+A: Length of the first row.
+N: Rotate clockwise in place?
+[pause 3]
+A: Transpose, then reverse each row.
+N: Three means?
+[pause 3]
+A: Dead to live.
+N: Safe way to build an empty grid?
+[pause 3]
+A: A comprehension, one new row each time.
+[pause 1]
+N: From section 3, sliding window. 18 questions.
+[pause 1]
+N: Minimum window substring. Record what?
+[pause 3]
+A: Start and length.
+N: Concatenation of all words. Runs per word length L?
+[pause 3]
+A: L. One per offset.
+N: Fixed window slide. What changes?
+[pause 3]
+A: One enters, one leaves.
+N: Fixed window Big O?
+[pause 3]
+A: O of n.
+N: Flip up to k zeros. Window rule?
+[pause 3]
+A: At most k zeros inside.
+N: New bug in this section?
+[pause 3]
+A: Shrinking with if instead of while.
+N: Window length?
+[pause 3]
+A: Right minus left plus one.
+N: Pair from anywhere in a sorted list. Window or two pointers?
+[pause 3]
+A: Two pointers from the ends.
+N: Minimum size subarray sum. Nothing works. Return?
+[pause 3]
+A: Zero.
+N: What is a window?
+[pause 3]
+A: A run of items next to each other.
+N: Minimum window substring. Have goes up when?
+[pause 4]
+A: A letter's count reaches what t needs.
+N: Longest run that follows a rule. Template?
+[pause 3]
+A: Longest valid window.
+N: Longest substring without repeats. Broken when?
+[pause 3]
+A: A letter appears twice.
+N: Rearrangement of a string. Compare what?
+[pause 3]
+A: Letter counts.
+N: Shortest valid. Best starts at?
+[pause 3]
+A: Infinity.
+N: A word piece that isn't in the list?
+[pause 3]
+A: Clear the window and restart after it.
+N: Character replacement. Changes needed?
+[pause 4]
+A: Length minus the most common count.
+N: Shrink with if or while?
+[pause 3]
+A: While.
+[pause 1]
+N: From section 2, two pointers. 12 questions.
+[pause 1]
+N: Sum too small. Which pointer?
+[pause 3]
+A: Left moves right.
+N: Container. Why?
+[pause 4]
+A: Narrower and no taller can't win.
+N: Three Sum. After a match, what then?
+[pause 4]
+A: Move both pointers past repeats.
+N: Three Sum. Skip a fixed value when it equals which neighbor?
+[pause 3]
+A: The one before it.
+N: Unsorted list, find a pair that sums to target. Two pointers?
+[pause 4]
+A: No. Use a dictionary. Or sort first, if positions don't matter.
+N: Three numbers that sum to zero. Shape?
+[pause 3]
+A: Sort, fix one, two pointers on the rest.
+N: Three Sum. Fixed number is positive?
+[pause 3]
+A: Break.
+N: Two pointer water. Which side do you process?
+[pause 3]
+A: The side with the smaller max.
+N: And you fill the answer from?
+[pause 3]
+A: The back.
+N: Two Sum two returns what kind of index?
+[pause 3]
+A: One-indexed.
+N: Two pointers turns which Big O into which?
+[pause 3]
+A: O of n squared into O of n.
+N: Squares of a sorted array. Biggest squares are where?
+[pause 3]
+A: At the ends.
+[pause 1]
+N: From section 1, array string. 8 questions.
+[pause 1]
+N: Product prefix. Record first, or include first?
+[pause 3]
+A: Record first.
+N: H Index. Sort which way?
+[pause 3]
+A: Biggest first.
+N: Boyer Moore depends on what guarantee?
+[pause 3]
+A: A majority exists.
+N: Stock one tracks?
+[pause 3]
+A: Lowest price, and best profit.
+N: Merge Sorted Array fills from which end?
+[pause 3]
+A: The back.
+N: Jump Game two. Count a jump when?
+[pause 3]
+A: When i reaches the ring end.
+N: Jump Game. Stuck when?
+[pause 3]
+A: The index is past reach.
+N: Roman building. Method?
+[pause 3]
+A: Greedy, biggest piece first, with the six pairs.
+[pause 1]
+N: From section 0, foundations. 8 questions.
+[pause 1]
+N: Running sum. How do you get each answer?
+[pause 4]
+A: The previous answer, plus the current number.
+N: What two things does every coding test grade?
+[pause 4]
+A: Correctness, and performance.
+N: Mistake M one?
+[pause 3]
+A: Index versus value.
+N: Does a slice include its stop index?
+[pause 3]
+A: No.
+N: The Big O ladder, fastest to slowest.
+[pause 5]
+A: One. Log n. n. n log n. n squared. Two to the n.
+N: Loop that gives you index and value together?
+[pause 3]
+A: Enumerate.
+N: Does b equals a copy a list?
+[pause 3]
+A: No. Both names point at the same list.
+N: Mistake M five?
+[pause 3]
+A: Off by one at the ends.
+[pause 1]
+N: End of review. 74 questions. Missed any? Find them in the review sheets, then start section 5.

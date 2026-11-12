@@ -1,0 +1,90 @@
+# 04-3 Matrix Rapid Fire Drill
+
+N: Section four, track three. Rapid fire. Say it before you hear it. Repeat this track until it's easy.
+[pause 2]
+N: Row first, or column first?
+[pause 3]
+A: Row first.
+N: Number of rows?
+[pause 3]
+A: Length of the grid.
+N: Number of columns?
+[pause 3]
+A: Length of the first row.
+N: Big O of visiting every cell?
+[pause 3]
+A: O of m times n.
+N: Safe way to build an empty grid?
+[pause 3]
+A: A comprehension, one new row each time.
+N: Neighbor check comes before or after the read?
+[pause 3]
+A: Before.
+N: How many neighbors with diagonals?
+[pause 3]
+A: Eight.
+N: Transpose. Row r, column c goes where?
+[pause 3]
+A: Row c, column r.
+N: Main diagonal?
+[pause 3]
+A: Row equals column.
+N: Anti-diagonal?
+[pause 3]
+A: Row plus column equals n minus one.
+N: Odd n, both diagonals. Watch for?
+[pause 3]
+A: The center counts once.
+N: No repeats in each row, column, and box. Tool?
+[pause 3]
+A: One set per group.
+N: Sudoku box formula?
+[pause 4]
+A: Row over three, times three, plus column over three.
+N: Rotate clockwise in place?
+[pause 3]
+A: Transpose, then reverse each row.
+N: In-place transpose swaps which cells?
+[pause 3]
+A: Column bigger than row.
+N: Rotate counterclockwise?
+[pause 3]
+A: Transpose, then reverse the row order.
+N: Spiral. How many walls?
+[pause 3]
+A: Four.
+N: Spiral. Which steps re-check?
+[pause 3]
+A: Bottom row and left column.
+N: Spiral. Two test cases to run first?
+[pause 3]
+A: One row, and one column.
+N: Turning walker. Turn right how?
+[pause 3]
+A: d plus one, mod four.
+N: Set Matrix Zeroes. First rule?
+[pause 3]
+A: Record first, write second.
+N: O of one flags live where?
+[pause 3]
+A: Row zero and column zero.
+N: Which do you zero last?
+[pause 3]
+A: Row zero and column zero.
+N: Game of Life. Two means?
+[pause 3]
+A: Live to dead.
+N: Three means?
+[pause 3]
+A: Dead to live.
+N: Live with two or three neighbors?
+[pause 3]
+A: Lives.
+N: Dead with exactly three?
+[pause 3]
+A: Becomes live.
+N: New bug in this section?
+[pause 3]
+A: A missing re-check after the walls move.
+[pause 1]
+N: End of drill.

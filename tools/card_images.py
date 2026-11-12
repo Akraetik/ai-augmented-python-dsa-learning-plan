@@ -272,3 +272,39 @@ def bars_diagram(heights, path, *, pair=None, trapped=False, pointers=None, titl
     ax.set_ylim(-0.65 * top if pointers else -0.2 * top, top * 1.15)
     ax.axis("off")
     return _save(fig, path)
+
+
+def grid_row(grids, path, *, arrows=None):
+    """Grids side by side, e.g. before → middle → after.
+    grids: list of dicts of grid_diagram keyword args, each with a 'rows' key. arrows: labels between grids."""
+    from PIL import Image, ImageDraw, ImageFont
+    import tempfile
+    tmp = pathlib.Path(tempfile.mkdtemp())
+    imgs = []
+    for k, g in enumerate(grids):
+        g = dict(g)
+        rows = g.pop("rows")
+        imgs.append(Image.open(grid_diagram(rows, tmp / f"{k}.png", **g)).convert("RGB"))
+    gap = 120
+    W = sum(i.width for i in imgs) + gap * (len(imgs) - 1)
+    H = max(i.height for i in imgs)
+    out = Image.new("RGB", (W, H), BG)
+    draw = ImageDraw.Draw(out)
+    try:
+        font = ImageFont.truetype("DejaVuSans.ttf", 56)
+    except OSError:
+        font = ImageFont.load_default()
+    x = 0
+    for k, im in enumerate(imgs):
+        out.paste(im, (x, (H - im.height) // 2))
+        x += im.width
+        if k < len(imgs) - 1:
+            label = (arrows or [""] * len(imgs))[k] if arrows else ""
+            draw.text((x + gap // 2, H // 2), "→", fill=ACCENT, font=font, anchor="mm")
+            if label:
+                draw.text((x + gap // 2, H // 2 + 46), label, fill=MUTED, font=ImageFont.truetype("DejaVuSans.ttf", 22) if font != ImageFont.load_default() else font, anchor="mm")
+            x += gap
+    path = pathlib.Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    out.save(path)
+    return path

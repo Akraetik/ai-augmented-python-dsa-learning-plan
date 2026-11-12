@@ -1,0 +1,30 @@
+front,back,deck,tags
+Read one cell of a grid,"<code>grid[r][c]</code> — <b>row first, then column.</b><br><div class=""img""><img src=""dsa-s04-grid_index.png""></div>",04 Matrix::1 Grid Basics,s04 syntax L4.1
+Number of rows and columns,rows = <code>len(grid)</code> · cols = <code>len(grid[0])</code>,04 Matrix::1 Grid Basics,s04 syntax L4.1
+Build an empty rows × cols grid safely,<code>[[0] * cols for _ in range(rows)]</code><br>Not <code>[[0] * cols] * rows</code> (one row shared).,04 Matrix::1 Grid Basics,s04 syntax trap L4.1
+"Visit the neighbors of (r, c)","<div class=""img""><img src=""dsa-s04-code_neighbors.png""></div>Bounds check <b>before</b> reading: <code>grid[-1]</code> silently reads the last row.",04 Matrix::1 Grid Basics,s04 skeleton L4.1
+The 8 neighbors,"The 4 straight moves plus the 4 diagonals.<br><div class=""img""><img src=""dsa-s04-grid_eight.png""></div>",04 Matrix::1 Grid Basics,s04 syntax L4.1
+Big-O of visiting every cell of an m × n grid,"<b>O(m · n).</b> Two loops, but one visit per cell.",04 Matrix::1 Grid Basics,s04 bigo L4.1
+"Transpose: where does (r, c) go?","To <code>(c, r)</code>. An m × n grid becomes n × m.<br><div class=""img""><img src=""dsa-s04-grid_transpose.png""></div>",04 Matrix::1 Grid Basics,s04 pattern L4.1
+Transpose in one line,<code>[list(row) for row in zip(*grid)]</code>,04 Matrix::1 Grid Basics,s04 syntax L4.1
+Main and anti-diagonal cells,"Main: <code>r == c</code>. Anti: <code>r + c == n − 1</code>. One loop over i reads both.<br><div class=""img""><img src=""dsa-s04-grid_diagonals.png""></div>",04 Matrix::1 Grid Basics,s04 pattern L4.1
+Trigger: &quot;no repeats in each row / column / box&quot;,"<b>One set per group.</b> Box index <code>(r // 3) * 3 + c // 3</code>.<br><div class=""img""><img src=""dsa-s04-grid_sudoku_boxes.png""></div>",04 Matrix::2 Patterns,s04 pattern L4.2
+Trigger: &quot;rotate the image 90° in place&quot;,"<b>Transpose, then reverse each row</b> (clockwise).<br><div class=""img""><img src=""dsa-s04-grid_rotate.png""></div>",04 Matrix::2 Patterns,s04 pattern L4.3
+Counterclockwise rotation in place,"Transpose, then reverse the order of the rows.",04 Matrix::2 Patterns,s04 pattern L4.3
+Trigger: &quot;spiral order&quot;,"<b>Four walls</b> (top, bottom, left, right) that shrink inward.<br><div class=""img""><img src=""dsa-s04-grid_spiral.png""></div>",04 Matrix::2 Patterns,s04 pattern L4.3
+"Spiral: which steps need a re-check, and why?","<div class=""img""><img src=""dsa-s04-code_spiral.png""></div>After two walls move, the rest may be one row, one column, or empty.",04 Matrix::2 Patterns,s04 skeleton L4.3
+Turning-walker spiral: how do you turn right?,"<code>d = (d + 1) % 4</code> over <code>[(0,1), (1,0), (0,-1), (-1,0)]</code>. Turn when the next cell is outside or filled.",04 Matrix::2 Patterns,s04 pattern L4.3
+"Trigger: &quot;update in place, but each change depends on the original&quot;","<b>Record first, write second.</b> Keep the record in spare cells or extra states, not a copy.",04 Matrix::2 Patterns,s04 pattern L4.4
+LC 36 Valid Sudoku — key idea,"<ul><li>27 sets: rows, cols, boxes</li><li>Skip &quot;.&quot;</li><li>Return True only after every cell (M7)</li></ul>",04 Matrix::3 Problems,s04 problem L4.2
+"LC 48 Rotate Image — key idea, trap","<ul><li>Transpose in place, swapping only c &gt; r</li><li>Reverse each row</li><li>Trap: swapping every (r, c) undoes itself</li></ul>",04 Matrix::3 Problems,s04 problem L4.3
+LC 54 Spiral Matrix — key idea,"<ul><li>Four walls; walk top, right, bottom, left</li><li>Re-check before bottom and left</li><li>Test 1 × n and n × 1 first</li></ul>",04 Matrix::3 Problems,s04 problem L4.3
+LC 59 Spiral Matrix II — key idea,"<ul><li>Same walk, writing 1..n²</li><li>Or a turning walker with (d + 1) % 4</li></ul>",04 Matrix::3 Problems,s04 problem L4.3
+LC 73 Set Matrix Zeroes — why not zero immediately?,"New zeros would trigger more zeroing. Record first, then write.<br><div class=""img""><img src=""dsa-s04-grid_set_zeroes.png""></div>",04 Matrix::3 Problems,s04 problem L4.4
+LC 73 Set Matrix Zeroes — O(1) space,"<ul><li>Row 0 / column 0 hold the flags</li><li>Save first_row_zero, first_col_zero first</li><li>Zero row 0 and column 0 <b>last</b></li></ul><div class=""img""><img src=""dsa-s04-grid_zero_flags.png""></div>",04 Matrix::3 Problems,s04 problem L4.4
+LC 289 Game of Life — the four states,"<div class=""img""><img src=""dsa-s04-code_life_states.png""></div>Second pass: 2 → 0, 3 → 1.",04 Matrix::3 Problems,s04 problem L4.4
+LC 289 Game of Life — the rules,"<ul><li>live, &lt; 2 neighbors → dies</li><li>live, 2 or 3 → lives</li><li>live, &gt; 3 → dies</li><li>dead, exactly 3 → lives</li></ul>",04 Matrix::3 Problems,s04 problem L4.4
+<code>grid[c][r]</code> instead of <code>grid[r][c]</code>,"Reads the wrong cell, or crashes on a non-square grid. Row first. (M1 in a new form.)",04 Matrix::4 Traps,s04 trap mistake L4.1
+Why must the bounds check come first?,Negative indexes don&#x27;t crash in Python. <code>grid[-1]</code> reads the last row: a silent wrong answer.,04 Matrix::4 Traps,s04 trap L4.1
+Valid Sudoku: what&#x27;s wrong with <code>r // 3 + c // 3</code>?,"It gives 0–4, so different boxes share an index. Use <code>(r // 3) * 3 + c // 3</code>.",04 Matrix::4 Traps,s04 trap L4.2
+Set Matrix Zeroes O(1): why zero row 0 and column 0 last?,They hold the flags the inner cells still need.,04 Matrix::4 Traps,s04 trap L4.4
+New bug type (lab 4.09): missing re-check after walls move,The bottom row of a 1 × n grid is printed again backward. Check: &quot;Is there still a row left?&quot; (Candidate M10.),04 Matrix::4 Traps,s04 trap mistake L4.3
