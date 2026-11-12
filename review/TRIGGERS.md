@@ -36,3 +36,17 @@ pattern from the trigger alone.
 | maximize, capped by the shorter side | shrink the weaker side | move the shorter line | 02 |
 | k numbers that sum to X | sort + fix + two pointers | skip equal neighbors | 02 |
 | prefix/suffix answer, but O(1) space | two pointers from the ends | process the side whose bound is known | 02 |
+| every window of size k, k consecutive | fixed window | add entering, remove leaving | 03 |
+| a block that's a rearrangement of s1 | fixed window of counts | compare counts each slide | 03 |
+| longest run / substring that follows a rule | longest-valid window | shrink while broken, record after | 03 |
+| change or flip up to k items | window with ≤ k bad items | count bad items, shrink when > k | 03 |
+| shortest run that meets a goal | shortest-valid window | while valid: record, then shrink | 03 |
+| contains all characters of t | shortest window + need/have | valid when have == required | 03 |
+| all words, same length, any order | window of word pieces | one run per offset 0..L−1 | 03 |
+| subarray sum with negatives | NOT a window | prefix sums + hashmap (Section 05) | 03 |
+| any 2D grid | `grid[r][c]`, row first | rows = len(grid), cols = len(grid[0]) | 04 |
+| look at the cells around a cell | directions list | bounds check before reading | 04 |
+| no repeats in each row / column / box | one set per group | box = (r // 3) * 3 + c // 3 | 04 |
+| rotate the grid 90° in place | two flips | transpose, then reverse each row | 04 |
+| spiral order | four shrinking walls | re-check before bottom row and left column | 04 |
+| in-place update that depends on the original | record first, write second | flags in row 0 / col 0; extra states 2 and 3 | 04 |

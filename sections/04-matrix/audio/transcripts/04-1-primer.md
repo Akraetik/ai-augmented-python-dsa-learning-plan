@@ -1,0 +1,55 @@
+# 04-1 Matrix Primer
+
+**Narrator:** Section four, track one. Matrix. The primer.
+
+**Narrator:** Listen before you open lesson four point one. You're loading the words, not memorizing.
+
+*[pause 1s]*
+
+**Narrator:** A matrix is a grid. In Python, it's a list of rows. Each row is a list.
+
+**Narrator:** To read one cell, you write grid, row, column. Row first, then column. Down, then across.
+
+**Narrator:** The number of rows is the length of the grid. The number of columns is the length of the first row.
+
+*[pause 1s]*
+
+**Narrator:** Grid problems are usually O of m times n. One visit per cell. You can't do better, because you have to look at every cell at least once.
+
+*[pause 1s]*
+
+**Narrator:** The first tool is neighbors. Keep the moves in a list. Up, down, left, right. Add the four diagonals if you need all eight.
+
+**Narrator:** Before you read a neighbor, check it's inside the grid. Python won't always crash if you forget. A row index of minus one quietly reads the last row. That's a wrong answer with no error. Bounds check first. Every time.
+
+*[pause 1s]*
+
+**Narrator:** The second tool is groups. Valid Sudoku asks: does any digit repeat in a row, a column, or a three by three box? That's the have I seen this before question from section zero. One set per row, one per column, one per box. The box number is the row divided by three, times three, plus the column divided by three.
+
+*[pause 1s]*
+
+**Narrator:** The third tool is flips. To rotate a square grid ninety degrees clockwise, in place, do two flips. First transpose: flip it over its main diagonal, so rows become columns. Then reverse each row.
+
+**Narrator:** It's the same idea as Rotate Array from section one, where a rotation was three reversals.
+
+*[pause 1s]*
+
+**Narrator:** The fourth tool is walls. Spiral Matrix reads the grid in a spiral: across the top, down the right side, back across the bottom, up the left side, then the next ring in.
+
+**Narrator:** Keep four walls. Top, bottom, left, right. After each edge, move that wall inward. And after the first two walls move, check that there's still something left before you walk the bottom row and the left column. A single row grid is where that check matters.
+
+*[pause 1s]*
+
+**Narrator:** The fifth tool is markers. Some problems change cells based on other cells. Set Matrix Zeroes says: if a cell is zero, zero its row and column. Game of Life updates every cell from its eight neighbors.
+
+**Narrator:** If you change a cell too early, its neighbors read the new value. The answer goes wrong.
+
+**Narrator:** So record first, and write second. Keep the record somewhere cheap. Set Matrix Zeroes can keep it in the first row and first column of the grid itself. Game of Life can use extra numbers. Two means live now, dead next. Three means dead now, live next.
+
+*[pause 1s]*
+
+**Narrator:** One new bug to watch for. A missing re-check after the walls move. The bug hunt has it.
+
+*[pause 1s]*
+
+**Narrator:** That's the map. Neighbors, groups, flips, walls, and markers. Open lesson four point one at your desk.

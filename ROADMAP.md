@@ -28,12 +28,12 @@ Extra reps — NeetCode: 49 Group Anagrams, 347 Top K Frequent, 271 Encode and D
 125 Valid Palindrome (E) · 392 Is Subsequence (E) · 167 Two Sum II (M) · 11 Container With Most Water (M) · 15 3Sum (M)
 Extra reps — NeetCode: 42 Trapping Rain Water (revisit). Codility: Lesson 15 (Caterpillar Method).
 
-## 03 · Sliding Window — 4
+## 03 · Sliding Window — 4 (built: plus 643, 567, 1004, 424)
 209 Minimum Size Subarray Sum (M) · 3 Longest Substring Without Repeating Characters (M) ·
 30 Substring with Concatenation of All Words (H) · 76 Minimum Window Substring (H)
 Extra reps — NeetCode: 424 Longest Repeating Character Replacement, 567 Permutation in String, 239 Sliding Window Maximum.
 
-## 04 · Matrix — 5
+## 04 · Matrix — 5 (built: plus 867, 1572, 59)
 36 Valid Sudoku (M) · 54 Spiral Matrix (M) · 48 Rotate Image (M) · 73 Set Matrix Zeroes (M) · 289 Game of Life (M)
 
 ## 05 · Hashmap — 9

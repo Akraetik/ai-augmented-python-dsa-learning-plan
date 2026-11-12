@@ -1,0 +1,91 @@
+# 04-2 Matrix Walkthrough
+
+N: Section four, track two. The walkthrough. Answer out loud before the answer voice.
+[pause 1]
+N: The grid is one two three, four five six. What is grid one, two?
+[pause 4]
+A: Six. Row one is four five six. Column two of it is six.
+N: How many rows, and how many columns?
+[pause 4]
+A: Two rows. Three columns.
+[pause 1]
+N: You build an empty grid by multiplying a row by the number of rows. What goes wrong?
+[pause 5]
+A: Every row is the same list. Change one, and they all change. Use a comprehension instead.
+[pause 1]
+N: A cell is in row zero. You look up without a bounds check. What happens?
+[pause 5]
+A: Row minus one reads the last row. No error, just a wrong answer.
+[pause 1]
+N: Transpose a two by three grid. What shape comes out?
+[pause 3]
+A: Three by two.
+N: Where does row r, column c go?
+[pause 3]
+A: To row c, column r.
+[pause 1]
+N: An n by n grid. Which cells are on the main diagonal?
+[pause 3]
+A: Where the row equals the column.
+N: And the anti-diagonal?
+[pause 4]
+A: Where row plus column equals n minus one.
+N: When n is odd, what do you watch for?
+[pause 4]
+A: The center cell is on both diagonals. Count it once.
+[pause 1]
+N: Valid Sudoku. Which box is cell four, seven in?
+[pause 6]
+A: Box five. Four divided by three is one. One times three is three. Seven divided by three is two. Three plus two is five.
+N: When can you return true?
+[pause 3]
+A: Only after checking every cell.
+[pause 1]
+N: Rotate Image. Ninety degrees clockwise, in place. The steps?
+[pause 4]
+A: Transpose. Then reverse each row.
+N: During the transpose, which cells do you swap?
+[pause 5]
+A: Only the cells above the diagonal, where the column is bigger than the row. Otherwise each pair swaps twice and nothing changes.
+N: Counterclockwise?
+[pause 4]
+A: Transpose, then reverse the order of the rows.
+[pause 1]
+N: Spiral Matrix. Name the four walls.
+[pause 3]
+A: Top, bottom, left, right.
+N: After walking the top row, which wall moves?
+[pause 3]
+A: Top moves down by one.
+N: Which steps need a re-check?
+[pause 5]
+A: The bottom row and the left column. After two walls move, there might be nothing left.
+N: Which test cases catch it?
+[pause 4]
+A: A single row. And a single column.
+[pause 1]
+N: Set Matrix Zeroes. Why not zero a row and column the moment you see a zero?
+[pause 5]
+A: The new zeros would trigger more zeroing. Record first, then write.
+N: Where does the O of one version keep its record?
+[pause 4]
+A: In the first row and first column of the grid.
+N: Why zero row zero and column zero last?
+[pause 4]
+A: They hold the flags the other cells still need.
+[pause 1]
+N: Game of Life. A cell holds a two. What does it mean?
+[pause 4]
+A: It was live, and it will be dead.
+N: And a three?
+[pause 3]
+A: It was dead, and it will be live.
+N: Which values count as live neighbors during the first pass?
+[pause 4]
+A: One and two. The cells that were live before.
+[pause 1]
+N: Last one. A new problem. Is this grid the same after a half turn? What do you compare?
+[pause 6]
+A: Each cell r, c against cell m minus one minus r, n minus one minus c. No copy needed.
+[pause 1]
+N: That's the walkthrough. Next track is the rapid fire drill.

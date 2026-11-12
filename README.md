@@ -85,8 +85,8 @@ python tools/run_labs.py sections/01-array-string
 | 00 | Foundations: Python for interviews + Big-O | ✅ Built |
 | 01 | Array / String | ✅ Built |
 | 02 | Two Pointers | ✅ Built |
-| 03 | Sliding Window | Planned |
-| 04 | Matrix | Planned |
+| 03 | Sliding Window | ✅ Built |
+| 04 | Matrix | ✅ Built |
 | 05 | Hashmap | Planned |
 | 06 | Intervals | Planned |
 | 07 | Stack | Planned |

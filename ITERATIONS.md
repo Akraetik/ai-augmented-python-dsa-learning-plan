@@ -18,6 +18,9 @@ standards listed here.
 | 6 | 2026-10-25 | Wanted a spaced-repetition review of all previous sections that grows each section, with less review on older ones. Pace: about one section per week. | New `review/` folder: tapered review audio per section, `TRIGGERS.md` (all triggers, grows each section), one-page sheets, a cumulative quiz that tapers by section age and re-weights past misses, and `tools/review.py` for tapered cold solves. README pace note: one section per week (Section 01 two to three). | 01+ | done |
 | 7 | 2026-10-25 | Asked for the next section. | Section 02 Two Pointers built to all current standards: 5 lessons, 10 labs (5 Top-150 + 977, 16, 42-in-O(1), trace, Bug Hunt), hints, solutions, 33 cards with 11 images, 22-question quiz with study pointers, Q&A, 3 audio tracks. Review folder grew: sheet 02, 7 trigger rows, `before-s03` track. Runner now stops an infinite loop after 5 s and says why. Lab 07 measures extra memory. Bug Hunt introduces candidate M8 (moving the wrong pointer). | 02, runner for all | done |
 | 8 | 2026-10-26 | Created the GitHub repo as `Akraetik/ai-augmented-python-dsa-learning-plan`. Keep that name. | Renamed everywhere: README title and repo link, PROMPT.md, Q&A prompts, GitHub guide (push URL, folder name, rejected-push fix), audio intro 00-1 re-rendered, all MP3s retagged. Anki parent deck stays "DSA Mastery" so re-imports update cards instead of duplicating them. Delivered Sections 00–02 as one complete zip for the first push. | all | done |
+| 9 | 2026-10-26 | Decided the repo stays public, mistake log included: "I am learning and growing along the way." | No change to files. Logs stay public by design. | all | done |
+| 10 | 2026-11-11 | Asked for Section 03. | Section 03 Sliding Window built to all current standards: 4 lessons, 10 labs (4 Top-150 + 643, 567, 1004, 424, trace, Bug Hunt), hints, solutions, 29 cards with 8 images, 22-question quiz with study pointers, Q&A, 3 audio tracks. Solutions checked against brute force on 5,000 random inputs; all 8 slow approaches fail the speed tests. Review folder grew: sheet 03, 8 trigger rows, `before-s04` track. Bug Hunt introduces candidate M9 (shrinking with `if` instead of `while`). Delivered as an update zip that leaves PROGRESS.md and MISTAKES.md untouched. | 03 | done |
+| 11 | 2026-11-11 | Asked for Section 04. | Section 04 Matrix built to all current standards: 4 lessons, 10 labs (5 Top-150 + 867, 1572, 59, trace, Bug Hunt), hints, solutions, 29 cards with 12 grid images (new side-by-side grid helper), 22-question quiz with study pointers, Q&A, 3 audio tracks. Solutions checked against reference versions on 3,000 random grids. Memory checks fail full copies in Rotate Image, Set Matrix Zeroes, and Game of Life; Set Matrix Zeroes also reports whether the O(1) follow-up was reached. Review folder grew: sheet 04, 6 trigger rows, `before-s05` track. Bug Hunt introduces candidate M10 (missing re-check after walls move). | 04 | done |
 
 ## Feedback so far
 
@@ -33,6 +36,7 @@ What you've said while testing, in your words where possible. This is what the s
 | 2026-10-25 | Overall flow | 👎 unclear | Wanted a flow chart of what to do first. | Study-flow chart (#5). |
 | 2026-10-25 | Retention | ➕ request | A review of all older sections that grows each section, with less on older ones. One section per week. | Cumulative, tapered `review/` folder (#6). |
 | 2026-10-26 | Repo name | ➕ decision | Named the repo `ai-augmented-python-dsa-learning-plan`. | Rename (#8). |
+| 2026-10-26 | Public repo | 👍 decision | "I am okay with my mistakes being known. I am learning and growing along the way." | Repo and mistake log stay public (#9). |
 
 ## Current standards for new sections
 
@@ -57,6 +61,9 @@ These come from the log above. Check each one when building a section.
 - Every section has a trace warm-up, Core/Build/Stretch labs, and a Bug Hunt.
 - Speed tests must fail the brute-force approach (check it with a slow version before shipping).
 - Where the lesson promises O(1) space, the lab measures memory.
+- Grid problems are naturally O(m · n), so brute force often isn't slower. Speed tests target the real
+  slow habits (scanning every cell to find a diagonal, re-scanning rows and columns per cell); memory tests
+  catch full copies.
 
 **Review**
 - Each new section adds its rows to `review/TRIGGERS.md`, a one-page `review/sheets/NN-name.md`,
