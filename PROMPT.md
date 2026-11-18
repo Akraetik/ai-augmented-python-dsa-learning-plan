@@ -54,3 +54,5 @@ To build the next section, start a chat and paste:
 > Build Section NN+1 ([name]) to the same structure as Section 01 and the current standards in ITERATIONS.md: lessons, labs with tests, hint ladder, solutions,
 > Anki deck, audio tracks, checkpoint quiz, Q&A session, and mastery gate. Weight the material toward my logged mistakes.
 > Then update review/: add the section's rows to TRIGGERS.md, write its one-page sheet, and rerun build_review.py.
+> Then update the LeetCode 150 unlocks: add the section to SECTION_DIRS and its labs to LABS in tools/leetcode150.py, add any
+> later-section problems its lessons now unlock to EARLY (with a one-line nudge), and run tools/build_unlocks.py.
