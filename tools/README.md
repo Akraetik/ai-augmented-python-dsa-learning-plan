@@ -10,6 +10,8 @@
 | `build_quiz.py` | Builds `quiz.html`, `quiz.md`, `quiz_answers.md` from `quiz/quiz_data.py`. | Maintainers |
 | `build_review.py` | Rebuilds `review/quiz.html` and the tapered review audio scripts from every section. | Maintainers |
 | `review.py` | `python tools/review.py NN` — copies this week's tapered cold solves into `review/cold-solves/`. | Learners |
+| `leetcode150.py` | All 150 Top Interview problems: home section, lab paths, early unlocks with nudges. The one source of truth. | Maintainers |
+| `build_unlocks.py` | Writes the unlock block at the end of every lesson, the section README tables, the main README path, and Section 24. `--check` reports stale files. | Maintainers |
 | `build_audio.py` | Renders `audio/scripts/*.txt` to MP3 with Kokoro TTS, plus transcripts. | Maintainers |
 
 ## Audio setup
@@ -53,3 +55,5 @@ A: Answer-voice line.
 3. `python tools/verify_solutions.py sections/NN-name` until every lab says OK.
 4. Write `anki/cards.py`, `quiz/quiz_data.py`, `audio/scripts/*.txt`. Run the three build scripts.
 5. Copy `tools/_check.py` into the new `labs/` folder.
+6. Add the section folder to `SECTION_DIRS` and its Top 150 labs to `LABS` in `tools/leetcode150.py`. Add early unlocks to `EARLY`
+   (keep old `EARLY` entries; their stamps never move). Run `python tools/build_unlocks.py`.
